@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        openFragment(EventFragment())
+        openFragment(WelcomeFragment())
 
         binding.btnEvents.setOnClickListener {
             openFragment(EventFragment())
@@ -29,7 +29,10 @@ class MainActivity : AppCompatActivity() {
             openFragment(SponsorFragment())
         }
         binding.btnClubs.setOnClickListener {
-            openFragment(SponsorFragment())
+            openFragment(ClubFragment())
+        }
+        binding.btnWelcome.setOnClickListener {
+            openFragment(WelcomeFragment())
         }
     }
 

@@ -5,26 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.kursach.databinding.FragmentEventBinding
+import com.example.kursach.databinding.FragmentAdddischBinding
 
-class EventFragment: Fragment() {
+class AddDischFragment: Fragment() {
 
-    lateinit var binding: FragmentEventBinding
+    lateinit var binding: FragmentAdddischBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventBinding.inflate(inflater,container,false)
+        binding = FragmentAdddischBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        binding.btnAddEvent.setOnClickListener {
-            (activity as? MainActivity)?.openFragment(AddEventFragment())
-        }
+        (activity as? MainActivity)?.openFragment(EventFragment())
 
     }
 

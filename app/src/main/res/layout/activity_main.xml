@@ -92,5 +92,16 @@
         android:text="?"
         android:textSize="30sp"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="5dp"
+        android:textColor="@color/white"
+        android:text="Welcome"
+        android:textSize="20sp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:background="@color/dark_gray">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPlus"
+        android:id="@+id/btnAddEvent"
         android:layout_width="300dp"
         android:layout_height="45dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlus"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddEvent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="55dp"/>
 

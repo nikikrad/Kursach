@@ -13,17 +13,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlayers"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnAddTeam"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPlayers"
+        android:id="@+id/btnAddTeam"
         android:layout_marginTop="5dp"
         android:layout_width="200dp"
         android:layout_height="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Добавить игроков"/>
+        android:text="Добавить команду"/>
 
 <!--    <androidx.appcompat.widget.AppCompatButton-->
 <!--        android:id="@+id/btnDischarge"-->
