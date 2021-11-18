@@ -42,11 +42,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
         android:background="@color/gray"
-        android:text="Events"
-        android:textSize="13sp"/>
+        android:text="События"
+        android:textSize="12sp"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPlayers"
+        android:id="@+id/btnTeams"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintStart_toEndOf="@+id/btnEvents"
@@ -54,23 +54,23 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
         android:background="@color/gray"
-        android:text="Players"
-        android:textSize="13sp"/>
+        android:text="Команды"
+        android:textSize="12sp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEmployers"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintStart_toEndOf="@+id/btnPlayers"
+        app:layout_constraintStart_toEndOf="@+id/btnTeams"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
         android:background="@color/gray"
-        android:text="Employee"
-        android:textSize="13sp"/>
+        android:text="Рабочие"
+        android:textSize="12sp"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnTither"
+        android:id="@+id/btnSponsor"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintStart_toEndOf="@+id/btnEmployers"
@@ -78,11 +78,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
         android:background="@color/gray"
-        android:textSize="13sp"
-        android:text="Contacts"/>
+        android:textSize="12sp"
+        android:text="Партнёры"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnComplexInfo"
+        android:id="@+id/btnClubs"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"

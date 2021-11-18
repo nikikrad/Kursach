@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.kursach.databinding.FragmentEventBinding
+import com.example.kursach.databinding.FragmentClubBinding
 
-class EventFragment: Fragment() {
+class ClubFragment: Fragment() {
 
-    lateinit var binding: FragmentEventBinding
+    lateinit var binding: FragmentClubBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventBinding.inflate(inflater,container,false)
+        binding = FragmentClubBinding.inflate(inflater,container,false)
         return binding.root
     }
 
