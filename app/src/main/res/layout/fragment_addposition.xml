@@ -6,7 +6,7 @@
     android:background="@color/gray">
 
     <EditText
-        android:id="@+id/etKindOfSport"
+        android:id="@+id/etPosition"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -14,36 +14,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="150dp"
         android:inputType="textCapSentences"
-        android:hint="Вид спорта*"/>
+        android:hint="Должность*"/>
 
-    <EditText
-        android:id="@+id/etDate"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etKindOfSport"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        android:inputType="date"
-        android:hint="Дата*"/>
-
-    <EditText
-        android:id="@+id/etTime"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        android:inputType="datetime"
-        android:hint="Время*"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAdd"
         android:layout_width="150dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTime"
+        app:layout_constraintTop_toBottomOf="@+id/etPosition"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
         android:text="Добавить"/>

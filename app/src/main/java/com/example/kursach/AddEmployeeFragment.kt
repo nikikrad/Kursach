@@ -5,25 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.kursach.databinding.FragmentClubBinding
+import com.example.kursach.databinding.FragmentAddemployeeBinding
 
-class ClubFragment: Fragment() {
+class AddEmployeeFragment: Fragment(){
 
-    lateinit var binding: FragmentClubBinding
+    lateinit var binding: FragmentAddemployeeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentClubBinding.inflate(inflater,container,false)
+        binding = FragmentAddemployeeBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        binding.btnClubs.setOnClickListener {
-            (activity as? MainActivity)?.openFragment(AddClubFragment())
+        binding.btnAdd.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
     }
 

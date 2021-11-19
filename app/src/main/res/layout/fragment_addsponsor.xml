@@ -6,7 +6,7 @@
     android:background="@color/gray">
 
     <EditText
-        android:id="@+id/etKindOfSport"
+        android:id="@+id/etName"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -14,36 +14,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="150dp"
         android:inputType="textCapSentences"
-        android:hint="Вид спорта*"/>
+        android:hint="Название компании*"/>
 
     <EditText
-        android:id="@+id/etDate"
+        android:id="@+id/etNumber"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etKindOfSport"
+        app:layout_constraintTop_toBottomOf="@+id/etName"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
-        android:inputType="date"
-        android:hint="Дата*"/>
+        android:hint="Номер*"/>
 
     <EditText
-        android:id="@+id/etTime"
+        android:id="@+id/etMail"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDate"
+        app:layout_constraintTop_toBottomOf="@+id/etNumber"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
-        android:inputType="datetime"
-        android:hint="Время*"/>
+        android:hint="Почта*"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAdd"
         android:layout_width="150dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTime"
+        app:layout_constraintTop_toBottomOf="@+id/etMail"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
         android:text="Добавить"/>

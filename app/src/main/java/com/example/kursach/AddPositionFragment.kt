@@ -5,26 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.kursach.databinding.FragmentClubBinding
+import com.example.kursach.databinding.FragmentAddpositionBinding
 
-class ClubFragment: Fragment() {
+class AddPositionFragment: Fragment() {
 
-    lateinit var binding: FragmentClubBinding
+    lateinit var binding: FragmentAddpositionBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentClubBinding.inflate(inflater,container,false)
+        binding = FragmentAddpositionBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        binding.btnClubs.setOnClickListener {
-            (activity as? MainActivity)?.openFragment(AddClubFragment())
+        binding.btnAdd.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
+
     }
 
     override fun onDestroy() {

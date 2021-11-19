@@ -21,7 +21,9 @@ class SponsorFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        binding.btnAddSponsor.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(AddSponsorFragment())
+        }
     }
 
     override fun onDestroy() {

@@ -20,7 +20,12 @@ class EmployeeFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        binding.btnAddEmployee.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(AddEmployeeFragment())
+        }
+        binding.btnAddPosition.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(AddPositionFragment())
+        }
     }
 
     override fun onDestroy() {
