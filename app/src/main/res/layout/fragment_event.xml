@@ -17,6 +17,7 @@
         android:text="Добавить событие"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEvent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"

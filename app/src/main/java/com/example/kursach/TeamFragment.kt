@@ -36,9 +36,9 @@ class TeamFragment: Fragment() {
             Teams("Invictus Game")
         )
 
-        val workersAdapter = TeamsAdapter(workerList)
+        val teamAdapter = TeamsAdapter(workerList)
         binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
-        binding.rvTeams.adapter = workersAdapter
+        binding.rvTeams.adapter = teamAdapter
     }
 
     override fun onDestroy() {
