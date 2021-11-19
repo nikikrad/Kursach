@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/dark_gray">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTeams"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_team"
         app:layout_constraintTop_toBottomOf="@+id/btnAddTeam"/>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -24,34 +26,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="Добавить команду"/>
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/btnDischarge"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        android:text="disch"-->
-<!--        android:layout_margin="5dp"/>-->
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/btnKindOfSports"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:text="KOF"-->
-<!--        android:layout_margin="5dp"/>-->
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/btnRoll"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        android:text="Roll"-->
-<!--        android:layout_margin="5dp"/>-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

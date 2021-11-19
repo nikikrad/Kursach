@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.databinding.FragmentTeamBinding
 
 class TeamFragment: Fragment() {
@@ -21,7 +22,23 @@ class TeamFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnAddTeam.setOnClickListener {
+            (activity as MainActivity).openFragment(AddTeamFragment())
+        }
+
+        var workerList = listOf(
+            Teams("Liqued"),
+            Teams("VP"),
+            Teams("NAVI"),
+            Teams("Evil Genius"),
+            Teams("OG"),
+            Teams("Invictus Game")
+        )
+
+        val workersAdapter = TeamsAdapter(workerList)
+        binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+        binding.rvTeams.adapter = workersAdapter
     }
 
     override fun onDestroy() {
