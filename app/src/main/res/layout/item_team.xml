@@ -11,11 +11,12 @@
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        android:layout_marginStart="50dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/white"
         tools:text="Name Nikita"/>
 
