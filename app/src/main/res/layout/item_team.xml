@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/white"
-        tools:text="Name Nikita"/>
+        tools:text="Liquid"/>
 
 
 

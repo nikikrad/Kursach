@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/gray">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        tools:text="Александр"        />
+
+    <TextView
+        android:id="@+id/tvSurname"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toEndOf="@+id/tvName"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/white"
+        tools:text="Александров"/>
+
+    <TextView
+        android:id="@+id/tvLastname"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvSurname"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        tools:text="Александрович"/>
+
+    <TextView
+        android:id="@+id/tvDisch"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        tools:text="2 Взрослый"        />
+
+    <TextView
+        android:id="@+id/tvKindOfSport"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toEndOf="@+id/tvDisch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/white"
+        tools:text="Волейбол"/>
+
+    <TextView
+        android:id="@+id/tvRoll"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvKindOfSport"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        tools:text="Центральный"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
