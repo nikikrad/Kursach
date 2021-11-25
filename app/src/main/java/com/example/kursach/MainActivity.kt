@@ -2,8 +2,13 @@ package com.example.kursach
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import com.example.kursach.databinding.ActivityMainBinding
+import android.widget.Toast
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +39,22 @@ class MainActivity : AppCompatActivity() {
         binding.btnWelcome.setOnClickListener {
             openFragment(WelcomeFragment())
         }
+
+
+    }
+
+    private var exit = false
+    override fun onBackPressed() {
+        if (exit) {
+            finish() // finish activity
+        } else {
+            Toast.makeText(
+                this, "Повторите действие для выхода из программы",
+                Toast.LENGTH_SHORT
+            ).show()
+            exit = true
+            Handler().postDelayed(Runnable { exit = false }, 3 * 1000)
+        }
     }
 
 
@@ -41,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     fun openFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction()
             .replace(binding.container.id, fragment)
-            .addToBackStack(null)
+//            .addToBackStack(null)
             .commit()
     }
 }

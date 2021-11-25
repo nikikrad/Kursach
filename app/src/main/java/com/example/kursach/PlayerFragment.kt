@@ -40,9 +40,9 @@ class PlayerFragment: Fragment() {
                 Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой")
         )
 
-        val teamAdapter = TeamsAdapter(playerList)
-        binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
-        binding.rvPlayer.adapter = PlayerAdapter
+//        val playerAdapter = PlayerAdapter(playerList)
+//        binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+//        binding.rvPlayer.adapter = PlayerAdapter
     }
 
     override fun onDestroy() {

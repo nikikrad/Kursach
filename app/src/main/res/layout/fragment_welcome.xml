@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="30dp"
-        android:text="Добро пожаловать в мою таверну"
+        android:text="Welcome to the club buddy"
         android:textColor="@color/white"
         android:textAlignment="center"
         />

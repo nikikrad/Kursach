@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/vBottNavigation"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btnEvents"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -41,11 +41,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
-        android:background="@color/gray"
-        android:text="События"
-        android:textSize="12sp"/>
+        android:background="@android:color/transparent"
+        android:src="@drawable/event"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btnTeams"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -53,11 +52,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
-        android:background="@color/gray"
-        android:text="Команды"
-        android:textSize="12sp"/>
+        android:src="@drawable/team"
+        android:background="@android:color/transparent"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btnEmployers"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -65,11 +63,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
-        android:background="@color/gray"
-        android:text="Рабочие"
-        android:textSize="12sp"/>
+        android:src="@drawable/employee"
+        android:background="@android:color/transparent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btnSponsor"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -77,20 +74,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="3dp"
-        android:background="@color/gray"
-        android:textSize="12sp"
-        android:text="Партнёры"/>
+        android:src="@drawable/sponsor"
+        android:background="@android:color/transparent"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btnClubs"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"
-        android:background="@color/white"
-        android:text="?"
-        android:textSize="30sp"/>
+        android:src="@drawable/club"
+        android:background="@android:color/transparent"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnWelcome"
