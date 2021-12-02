@@ -6,8 +6,11 @@ import android.os.Handler
 import androidx.fragment.app.Fragment
 import com.example.kursach.databinding.ActivityMainBinding
 import android.widget.Toast
-
-
+import com.example.kursach.clubs.ClubFragment
+import com.example.kursach.employees.EmployeeFragment
+import com.example.kursach.events.EventFragment
+import com.example.kursach.sponsors.SponsorFragment
+import com.example.kursach.teams.TeamFragment
 
 
 class MainActivity : AppCompatActivity() {
