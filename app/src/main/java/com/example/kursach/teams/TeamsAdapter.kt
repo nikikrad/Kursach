@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kursach.R
 
@@ -11,6 +12,8 @@ class TeamsAdapter (
     private val teamsList: List<Teams>,
     private val clickTeam: ClickTeam
     ): RecyclerView.Adapter<TeamsAdapter.TeamsViewHolder>(){
+
+    private lateinit var binding: BindingAdapter
 
     override fun getItemCount(): Int = teamsList.size
 
@@ -28,7 +31,7 @@ class TeamsAdapter (
         holder.itemView.setOnClickListener { }
 
         holder.itemView.setOnClickListener {
-            clickTeam.sendData(teamsList)
+            clickTeam.sendData(teamsList[position].toString())
         }
 
     }

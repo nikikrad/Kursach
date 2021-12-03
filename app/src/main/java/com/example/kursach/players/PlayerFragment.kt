@@ -10,8 +10,6 @@ import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentPlayersBinding
 import com.example.kursach.teams.ClickTeam
-import com.example.kursach.teams.TeamFragment
-import com.example.kursach.teams.Teams
 
 class PlayerFragment: Fragment(), ClickTeam {
 
@@ -47,13 +45,22 @@ class PlayerFragment: Fragment(), ClickTeam {
 //        val playerAdapter = PlayerAdapter(playerList)
 //        binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
 //        binding.rvPlayer.adapter = PlayerAdapter
+        lateinit var number: String
+        val bundle = arguments
+        if (bundle != null) {
+            //ловим данные
+            number = bundle.getString?("teamNumber")
+        } else {
+            //если ничего не пришло
+        }
+
     }
 
-    override fun sendData(teamsList: List<Teams>) {
-        val teamFragment= TeamFragment()
+    override fun sendData(number: String) {
+        val playerFragment = PlayerFragment()
         val bundle = Bundle()
-        bundle.putInt("данные", teamsList: List<Teams>)
-        childFragmentManager.beginTransaction().replace(R.id.contentContainerT, teamFragment).addToBackStack(null).commit()
+        bundle.putString("teamNumber", number)
+        childFragmentManager.beginTransaction().replace(R.id.contentContainerT, playerFragment).addToBackStack(null).commit()
     }
 
     override fun onDestroy() {
