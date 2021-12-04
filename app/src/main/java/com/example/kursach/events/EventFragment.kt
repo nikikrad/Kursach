@@ -24,7 +24,6 @@ class EventFragment: Fragment() {
     ): View {
         binding = FragmentEventBinding.inflate(inflater,container,false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,17 +32,17 @@ class EventFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(AddEventFragment())
         }
 
-        val url = "jdbc:mysql://localhost:3000/events"
-        val username = "root"
-        val password = "denis"
-        var connection: Connection? = null
+//        val url = "jdbc:mysql://localhost:3000/events"
+//        val username = "root"
+//        val password = "denis"
+//        var connection: Connection? = null
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver")
-            connection = DriverManager.getConnection(url, username, password)
-
-        } catch (e: Exception) {
-        }
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver")
+//            connection = DriverManager.getConnection(url, username, password)
+//
+//        } catch (e: Exception) {
+//        }
 
         var eventList = listOf(
             Event("Футбол","19.12.2000","19:30"),

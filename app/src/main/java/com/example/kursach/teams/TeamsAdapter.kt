@@ -13,7 +13,7 @@ class TeamsAdapter (
     private val clickTeam: ClickTeam
     ): RecyclerView.Adapter<TeamsAdapter.TeamsViewHolder>(){
 
-    private lateinit var binding: BindingAdapter
+//    private lateinit var binding: BindingAdapter
 
     override fun getItemCount(): Int = teamsList.size
 
