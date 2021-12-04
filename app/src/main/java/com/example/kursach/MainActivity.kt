@@ -11,6 +11,7 @@ import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.events.EventFragment
 import com.example.kursach.sponsors.SponsorFragment
 import com.example.kursach.teams.TeamFragment
+import com.example.kursach.test.Service
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnWelcome.setOnClickListener {
             openFragment(WelcomeFragment())
+            Service.start()
         }
 
 

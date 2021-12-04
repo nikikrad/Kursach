@@ -36,12 +36,16 @@ android {
 
 dependencies {
 
-    implementation("com.squareup.okhttp3:logging-interceptor:4.2.0")
-    implementation("com.squareup.okhttp3:okhttp:4.2.0")
+//    implementation("com.squareup.okhttp3:logging-interceptor:4.2.0")
+//    implementation("com.squareup.okhttp3:okhttp:4.2.0")
 //    implementation "com.squareup.retrofit2:retrofit: 2.9.0"
 //    implementation "com.squareup.retrofit2:adapter-rxjava2: 2.9.0"
 //    implementation "com.squareup.retrofit2:converter-gson: 2.9.0"
 
+    implementation "com.squareup.retrofit2:retrofit:2.9.0" //Retrofit для REST API
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1' //Для ретрофита, чтобы преобразовывать Json -> Объект
+    implementation "com.google.code.gson:gson:2.8.7" //чтобы преобразовывать Json -> Объект
+    implementation "com.squareup.okhttp3:logging-interceptor:3.14.1" //для логов в ретрофите
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'

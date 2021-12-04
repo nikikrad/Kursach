@@ -8,9 +8,8 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kursach.R
 
-class TeamsAdapter (
-    private val teamsList: List<Teams>,
-    private val clickTeam: ClickTeam
+class TeamsAdapter(
+    private val teamsList: List<Teams>
     ): RecyclerView.Adapter<TeamsAdapter.TeamsViewHolder>(){
 
 //    private lateinit var binding: BindingAdapter
@@ -28,12 +27,6 @@ class TeamsAdapter (
 
     override fun onBindViewHolder(holder: TeamsViewHolder, position: Int) {
         holder.bind(teamsList[position])
-        holder.itemView.setOnClickListener { }
-
-        holder.itemView.setOnClickListener {
-            clickTeam.sendData(teamsList[position].toString())
-        }
-
     }
 
     class TeamsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

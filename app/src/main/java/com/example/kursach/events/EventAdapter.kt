@@ -23,7 +23,7 @@ class EventAdapter(
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-        holder.bind(eventList[position])
+           holder.bind(eventList[position])
     }
 
     class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -33,10 +33,10 @@ class EventAdapter(
         private val tvTime: TextView = itemView.findViewById(R.id.tvTime)
 
         fun bind(item: Event){
-            tvKindOfSport.text = item.KindOfSport
+            tvKindOfSport.text = item.idKindOfSport
             tvDate.text = item.Date
             tvTime.text = item.Time
-        }
+//        }
     }
 
 }

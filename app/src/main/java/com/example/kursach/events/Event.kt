@@ -1,6 +1,12 @@
 package com.example.kursach.events
 
+import com.google.gson.annotations.SerializedName
+
 data class Event(
-    var KindOfSport: String,
-    var Date: String,
-    var Time: String)
+    @SerializedName("id")
+    var idEvents: Int,
+    var sport: String,
+    var date: String,
+    var time: String,
+    var idSportClubs: Int
+    )

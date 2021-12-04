@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddEventFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentEventBinding
+import com.example.kursach.test.Service.clientsList
 import java.lang.Exception
 import java.sql.Connection
 import java.sql.DriverManager
@@ -44,18 +45,18 @@ class EventFragment: Fragment() {
 //        } catch (e: Exception) {
 //        }
 
-        var eventList = listOf(
-            Event("Футбол","19.12.2000","19:30"),
-            Event("Гандбол","12.08.2341","19:30"),
-            Event("Волейбол","16.11.2020","19:30"),
-            Event("Футбол","19.12.2000","19:30"),
-            Event("Хоккей","29.04.2200","19:30"),
-            Event("Вилей","19.02.2031","19:30"),
-            Event("Война","22.06.1941","19:30"),
+//        var eventList = listOf(
+//            Event("Футбол","19.12.2000","19:30"),
+//            Event("Гандбол","12.08.2341","19:30"),
+//            Event("Волейбол","16.11.2020","19:30"),
+//            Event("Футбол","19.12.2000","19:30"),
+//            Event("Хоккей","29.04.2200","19:30"),
+//            Event("Вилей","19.02.2031","19:30"),
+//            Event("Война","22.06.1941","19:30"),
+//
+//        )
 
-        )
-
-        val eventAdapter = EventAdapter(eventList)
+        val eventAdapter = EventAdapter(clientsList)
         binding.rvEvent.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvEvent.adapter = eventAdapter
 
