@@ -2,46 +2,67 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/dark_purple"/>
+
     <TextView
         android:id="@+id/tvKindOfSport"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="200dp"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/white"
         tools:text="Футбол"/>
 
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="50dp"
         android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/tvKindOfSport"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="200dp"
         android:textColor="@color/white"
         tools:text="19.07.2001"/>
+
 
     <TextView
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="50dp"
         android:gravity="center"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="200dp"
         android:textColor="@color/white"
         tools:text="19:30"/>
+
+    <TextView
+        android:id="@+id/tvSportClubs"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        tools:text="г.Минск, ул.Леонида Беды 4"/>
 
 
 

@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         openFragment(WelcomeFragment())
 
+        Service.start()
+
         binding.btnEvents.setOnClickListener {
             openFragment(EventFragment())
         }
@@ -42,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnWelcome.setOnClickListener {
             openFragment(WelcomeFragment())
-            Service.start()
         }
 
 

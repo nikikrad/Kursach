@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Service {
 
-    var clientsList: MutableList<Event> = emptyList<Event>().toMutableList()
+    var eventsList: MutableList<Event> = emptyList<Event>().toMutableList()
     private const val URL = "http://10.0.2.2:3000/"
 
     fun start(){
@@ -43,8 +43,8 @@ object Service {
                                 val date = events[i].date
                                 val time = events[i].time
                                 val idSportClubs = events[i].idSportClubs
-                                clientsList.add(Event(idEvents, sport, date, time, idSportClubs))
-                                Log.e("KEK", clientsList.toString())
+                                eventsList.add(Event(idEvents, sport, date, time, idSportClubs))
+                                Log.e("KEK", eventsList.toString())
                             }
                         }
                     }

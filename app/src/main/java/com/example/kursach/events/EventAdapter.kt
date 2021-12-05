@@ -31,12 +31,13 @@ class EventAdapter(
         private val tvKindOfSport: TextView = itemView.findViewById(R.id.tvKindOfSport)
         private val tvDate: TextView = itemView.findViewById(R.id.tvDate)
         private val tvTime: TextView = itemView.findViewById(R.id.tvTime)
+        private val tvSportClubs: TextView = itemView.findViewById(R.id.tvSportClubs)
 
         fun bind(item: Event){
-            tvKindOfSport.text = item.idKindOfSport
-            tvDate.text = item.Date
-            tvTime.text = item.Time
-//        }
+            tvKindOfSport.text = item.sport
+            tvDate.text = item.date
+            tvTime.text = item.time
+            tvSportClubs.text = item.idSportClubs.toString()
+        }
     }
-
 }
