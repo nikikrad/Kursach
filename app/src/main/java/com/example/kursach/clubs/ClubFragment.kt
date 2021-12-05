@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddClubFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentClubBinding
+import com.example.kursach.test.ServiceSportClubs.clubsList
 
 class ClubFragment: Fragment() {
 
@@ -29,18 +30,8 @@ class ClubFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(AddClubFragment())
         }
 
-        var clubList = listOf(
-            Club("Liqued", "+37544553191", "HUI@bsuir.by" ),
-            Club("Govnary", "+37544553191", "nikitos@bsuir.by" ),
-            Club("Bazuki", "+37544555191", "artem@bsuir.by" ),
-            Club("Kek", "+37544553132", "den@bsuir.by" ),
-            Club("Shlep", "+37544753191", "shurikov.shura@bsuir.by" ),
-            Club("Zhopa", "+37544533191", "shuriniv,nikita@bsuir.by" ),
-            Club("Lolita", "+37529553391", "dsfhjd@bsuir.by" ),
 
-            )
-
-        val clubAdapter = ClubAdapter(clubList)
+        val clubAdapter = ClubAdapter(clubsList)
         binding.rvClub.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvClub.adapter = clubAdapter
 

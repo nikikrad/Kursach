@@ -28,14 +28,14 @@ class ClubAdapter(
 
     class ClubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        private val tvName: TextView = itemView.findViewById(R.id.tvName)
-        private val tvNumber: TextView = itemView.findViewById(R.id.tvNumber)
-        private val tvEmail: TextView = itemView.findViewById(R.id.tvEmail)
+        private val address: TextView = itemView.findViewById(R.id.tvName)
+        private val number: TextView = itemView.findViewById(R.id.tvNumber)
+        private val mail: TextView = itemView.findViewById(R.id.tvEmail)
 
         fun bind(item: Club){
-            tvName.text = item.Name
-            tvNumber.text = item.Number
-            tvEmail.text = item.Email
+            address.text = item.sportAddress
+            number.text = item.sportNumber
+            mail.text = item.sportMail
         }
     }
 }

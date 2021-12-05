@@ -1,6 +1,7 @@
 package com.example.kursach.test
 
 import android.util.Log
+import com.example.kursach.clubs.Club
 import com.example.kursach.events.Event
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -33,7 +34,7 @@ object Service {
 
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
                 if (response.isSuccessful){
-                    Log.e("KEK", response.body().toString())
+//                    Log.e("KEK", response.body().toString())
                     if(response.isSuccessful) {
                         val events = response.body()
                         if (events != null) {
@@ -43,9 +44,10 @@ object Service {
                                 val date = events[i].date
                                 val time = events[i].time
                                 val idSportClubs = events[i].idSportClubs
-                                val address = events[i].address
-                                eventsList.add(Event(idEvents, sport, date, time, idSportClubs, address))
-                                Log.e("KEK", eventsList.toString())
+//                                clubAddress(idSportClubs)
+//                                val address = events[i].address
+                                eventsList.add(Event(idEvents, sport, date, time, idSportClubs))
+//                                Log.e("KEK", eventsList.toString())
                             }
                         }
                     }
@@ -55,6 +57,21 @@ object Service {
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
+
+//            lateinit var club: Club
+////            lateinit var clubList: MutableList<List<Club>>
+//            fun clubAddress(idEvent: Int){
+//
+////                val response: Response<List<Club>>
+//                lateinit var clubList: MutableList<List<Club>>
+//                lateinit var id: Array<Int>
+//                for (i in 0 until clubList.size){
+//                  id[i] = club.idSportClubs
+//                    Log.e("KEK", id[i].toString())
+//                }
+//
+//
+//            }
         })
 
     }

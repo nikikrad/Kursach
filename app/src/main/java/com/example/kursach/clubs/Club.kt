@@ -1,7 +1,11 @@
 package com.example.kursach.clubs
 
+import com.google.gson.annotations.SerializedName
+
 data class Club(
-    var Name: String,
-    var Number: String,
-    var Email: String
+    @SerializedName("id")
+    var idSportClubs: Int,
+    var sportAddress: String,
+    var sportNumber: String,
+    var sportMail: String
 )
