@@ -11,5 +11,5 @@ data class Event(
     var time: String,
     var idSportClubs: Int,
 //    @SerializedName("sportAddress")
-//    var address: String
+    var address: String
     )

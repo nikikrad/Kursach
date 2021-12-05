@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddEventFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentEventBinding
+import com.example.kursach.test.Service
 import com.example.kursach.test.Service.eventsList
 import java.lang.Exception
 import java.sql.Connection
@@ -56,6 +57,8 @@ class EventFragment: Fragment() {
 //
 //        )
 
+//        eventsList.clear()
+//        Service.start()
         val eventAdapter = EventAdapter(eventsList)
         binding.rvEvent.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvEvent.adapter = eventAdapter

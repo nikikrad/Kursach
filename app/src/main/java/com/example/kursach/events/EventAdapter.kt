@@ -37,7 +37,7 @@ class EventAdapter(
             tvKindOfSport.text = item.sport
             tvDate.text = item.date
             tvTime.text = item.time
-            tvSportClubs.text = item.idSportClubs.toString()
+            tvSportClubs.text = item.address
         }
     }
 }

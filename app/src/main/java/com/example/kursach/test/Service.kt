@@ -44,9 +44,8 @@ object Service {
                                 val date = events[i].date
                                 val time = events[i].time
                                 val idSportClubs = events[i].idSportClubs
-//                                clubAddress(idSportClubs)
-//                                val address = events[i].address
-                                eventsList.add(Event(idEvents, sport, date, time, idSportClubs))
+                                val address = clubAddress(idSportClubs)
+                                eventsList.add(Event(idEvents, sport, date, time, idSportClubs, address))
 //                                Log.e("KEK", eventsList.toString())
                             }
                         }
@@ -58,20 +57,32 @@ object Service {
                 Log.e("KEK", t.toString())
             }
 
-//            lateinit var club: Club
-////            lateinit var clubList: MutableList<List<Club>>
-//            fun clubAddress(idEvent: Int){
-//
-////                val response: Response<List<Club>>
-//                lateinit var clubList: MutableList<List<Club>>
-//                lateinit var id: Array<Int>
-//                for (i in 0 until clubList.size){
-//                  id[i] = club.idSportClubs
-//                    Log.e("KEK", id[i].toString())
+            lateinit var club: Club
+
+            fun clubAddress(idClub: Int): String{
+
+                var tempClub = ServiceSportClubs.clubsList
+//                var clubList: MutableList<Club> = emptyList<Club>().toMutableList()
+//                var id: MutableList<Int> = emptyList<Int>().toMutableList()
+
+//                for (i in 0 until tempClub.size){
+//                  id.add(club.idSportClubs)
+//                    Log.e("KEK", id.toString())
 //                }
-//
-//
-//            }
+                var buf: MutableList<Int> = emptyList<Int>().toMutableList()
+
+
+                tempClub.forEach {
+//                   buf.add(it.idSportClubs)
+                    if (it.idSportClubs == idClub){
+                        return it.sportAddress
+                    }
+                }
+                Log.e("KEK", buf.toString())
+
+
+                return "null"
+            }
         })
 
     }
