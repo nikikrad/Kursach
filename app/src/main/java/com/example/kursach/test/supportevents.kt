@@ -10,13 +10,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object Service {
+object supportevents {
 
-    var eventsList: MutableList<Event> = emptyList<Event>().toMutableList()
     private const val URL = "http://10.0.2.2:3000/"
 
     fun start(){
-
         val gson: Gson = GsonBuilder()
             .setLenient()
             .create()
@@ -29,7 +27,7 @@ object Service {
         val myApi = retrofit.create(API::class.java)
 
         val call = myApi.getAllEvents()
-        call.enqueue(object: Callback<List<Event>>{
+        call.enqueue(object: Callback<List<Event>> {
 
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
                 if (response.isSuccessful){
@@ -44,8 +42,8 @@ object Service {
                                 val time = events[i].time
                                 val idSportClubs = events[i].idSportClubs
                                 val address = events[i].address
-                                eventsList.add(Event(idEvents, sport, date, time, idSportClubs, address))
-                                Log.e("KEK", eventsList.toString())
+                                Service.eventsList.add(Event(idEvents, sport, date, time, idSportClubs, address))
+                                Log.e("KEK", Service.eventsList.toString())
                             }
                         }
                     }
@@ -56,7 +54,6 @@ object Service {
                 Log.e("KEK", t.toString())
             }
         })
-
     }
 
 }
