@@ -4,17 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kursach.R
 
 class TeamsAdapter(
-    private val teamsList: List<Teams>
+    private val teamList: List<Team>
     ): RecyclerView.Adapter<TeamsAdapter.TeamsViewHolder>(){
 
 //    private lateinit var binding: BindingAdapter
 
-    override fun getItemCount(): Int = teamsList.size
+    override fun getItemCount(): Int = teamList.size
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,14 +25,14 @@ class TeamsAdapter(
     }
 
     override fun onBindViewHolder(holder: TeamsViewHolder, position: Int) {
-        holder.bind(teamsList[position])
+        holder.bind(teamList[position])
     }
 
     class TeamsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
 
-        fun bind(item: Teams){
+        fun bind(item: Team){
             tvName.text = item.Team
         }
     }

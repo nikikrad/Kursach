@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kursach.databinding.FragmentWelcomeBinding
-import com.example.kursach.test.Service
 
 class WelcomeFragment: Fragment() {
 

@@ -1,7 +1,6 @@
-package com.example.kursach.test
+package com.example.kursach.services
 
 import android.util.Log
-import com.example.kursach.clubs.Club
 import com.example.kursach.events.Event
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -11,7 +10,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object Service {
+object ServiceEvents {
 
     var eventsList: MutableList<Event> = emptyList<Event>().toMutableList()
     private const val URL = "http://10.0.2.2:3000/"
@@ -32,7 +31,10 @@ object Service {
         val call = myApi.getAllEvents()
         call.enqueue(object: Callback<List<Event>>{
 
-            override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
+            override fun onResponse(
+                call: Call<List<Event>>,
+                response: Response<List<Event>>
+            ) {
                 if (response.isSuccessful){
 //                    Log.e("KEK", response.body().toString())
                     if(response.isSuccessful) {

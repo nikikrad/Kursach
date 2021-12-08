@@ -1,4 +1,4 @@
-package com.example.kursach.test
+package com.example.kursach.services
 
 import android.util.Log
 import com.example.kursach.clubs.Club
@@ -43,7 +43,7 @@ object ServiceSportClubs {
                                 val number = events[i].sportNumber
                                 val mail = events[i].sportMail
                                 clubsList.add(Club(id, address, number, mail))
-                                Log.e("KEK", Service.eventsList.toString())
+                                Log.e("KEK", ServiceEvents.eventsList.toString())
                             }
                         }
                     }

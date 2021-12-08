@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddClubFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentClubBinding
-import com.example.kursach.test.ServiceSportClubs.clubsList
+import com.example.kursach.services.ServiceSportClubs.clubsList
 
 class ClubFragment: Fragment() {
 

@@ -30,15 +30,6 @@ class TeamFragment: Fragment(){
             (activity as MainActivity).openFragment(AddTeamFragment())
         }
 
-        var teamList = listOf(
-            Teams("Liqued"),
-            Teams("VP"),
-            Teams("NAVI"),
-            Teams("Evil Genius"),
-            Teams("OG"),
-            Teams("Invictus Game")
-        )
-
 
         val teamsAdapter = TeamsAdapter(teamList)
         binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
