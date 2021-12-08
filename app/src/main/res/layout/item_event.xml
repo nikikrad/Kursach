@@ -19,11 +19,10 @@
         android:id="@+id/tvKindOfSport"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginStart="100dp"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/white"
         tools:text="Футбол"/>
 
@@ -32,11 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/tvKindOfSport"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="200dp"
+        app:layout_constraintStart_toStartOf="@+id/tvKindOfSport"
+        app:layout_constraintEnd_toEndOf="@+id/tvKindOfSport"
         android:textColor="@color/white"
         tools:text="19.07.2001"/>
 
@@ -46,10 +44,9 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="200dp"
         android:textColor="@color/white"
         tools:text="19:30"/>
 
@@ -58,12 +55,11 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:gravity="center"
-        android:layout_marginStart="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvTime"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="10dp"
+        app:layout_constraintStart_toStartOf="@+id/tvTime"
         android:textColor="@color/white"
-        tools:text="г.Минск, ул.Леонида Беды 4"/>
+        tools:text="г.Минск"/>
 
 
 

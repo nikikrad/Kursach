@@ -11,6 +11,7 @@ import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentEventBinding
 import com.example.kursach.test.Service
 import com.example.kursach.test.Service.eventsList
+import com.example.kursach.test.ServiceSportClubs
 import java.lang.Exception
 import java.sql.Connection
 import java.sql.DriverManager
@@ -62,6 +63,16 @@ class EventFragment: Fragment() {
         val eventAdapter = EventAdapter(eventsList)
         binding.rvEvent.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvEvent.adapter = eventAdapter
+
+        binding.btnUpdate.setOnClickListener{
+
+            eventsList.clear()
+            Service.start()
+            val eventAdapter = EventAdapter(eventsList)
+            binding.rvEvent.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+            binding.rvEvent.adapter = eventAdapter
+            (activity as? MainActivity)?.openFragment(EventFragment())
+        }
 
     }
 

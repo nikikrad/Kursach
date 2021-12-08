@@ -57,23 +57,15 @@ object Service {
                 Log.e("KEK", t.toString())
             }
 
-            lateinit var club: Club
 
             fun clubAddress(idClub: Int): String{
 
                 var tempClub = ServiceSportClubs.clubsList
-//                var clubList: MutableList<Club> = emptyList<Club>().toMutableList()
-//                var id: MutableList<Int> = emptyList<Int>().toMutableList()
 
-//                for (i in 0 until tempClub.size){
-//                  id.add(club.idSportClubs)
-//                    Log.e("KEK", id.toString())
-//                }
                 var buf: MutableList<Int> = emptyList<Int>().toMutableList()
 
 
                 tempClub.forEach {
-//                   buf.add(it.idSportClubs)
                     if (it.idSportClubs == idClub){
                         return it.sportAddress
                     }
