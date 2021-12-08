@@ -46,8 +46,10 @@ object ServiceEmployees {
                                 val sername = employee[i].Surname
                                 val lastname = employee[i].Lastname
                                 val idPositions = employee[i].idPositions
+                                val position = positionsInfo(idPositions)
                                 val idSportClubs = employee[i].idSportClubs
-                                employeesList.add(Employee(idEmploees, name, sername, lastname, idPositions, idSportClubs))
+                                val address = clubAddress(idSportClubs)
+                                employeesList.add(Employee(idEmploees, name, sername, lastname, idPositions, idSportClubs, address, position))
                             }
                         }
                     }
@@ -56,6 +58,30 @@ object ServiceEmployees {
 
             override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
                 Log.e("KEK", t.toString())
+            }
+
+            fun clubAddress(idClub: Int): String{
+
+                var tempClub = ServiceSportClubs.clubsList
+
+                tempClub.forEach {
+                    if (it.idSportClubs == idClub){
+                        return it.sportAddress
+                    }
+                }
+                return "null"
+            }
+
+            fun positionsInfo(idPosition: Int): String{
+
+                var tempClub = ServicePositions.positionsList
+
+                tempClub.forEach {
+                    if (it.idPositions == idPosition){
+                        return it.Name
+                    }
+                }
+                return "null"
             }
         })
 

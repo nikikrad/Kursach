@@ -32,12 +32,14 @@ class EmployeeAdapter(
         private val tvSurname: TextView = itemView.findViewById(R.id.tvSurname)
         private val tvLastname: TextView = itemView.findViewById(R.id.tvLastname)
         private val tvPosition: TextView = itemView.findViewById(R.id.tvPosition)
+        private val tvSportClubs: TextView = itemView.findViewById(R.id.tvSportClubs)
 
         fun bind(item: Employee){
             tvName.text = item.Name
             tvSurname.text = item.Surname
             tvLastname.text = item.Lastname
-            tvPosition.text = item.idPositions.toString()
+            tvPosition.text = item.positions
+            tvSportClubs.text = item.address
         }
     }
 

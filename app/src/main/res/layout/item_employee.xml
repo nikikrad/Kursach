@@ -1,48 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray">
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:paddingTop="15dp"
-        android:textAlignment="textStart"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:textColor="@color/white"
-        tools:text="Александр"        />
+        tools:text="Александр"/>
 
     <TextView
         android:id="@+id/tvSurname"
-        android:layout_width="90dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:paddingTop="15dp"
-        android:textAlignment="textStart"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@+id/tvName"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="30dp"
         android:textColor="@color/white"
         tools:text="Александров"/>
 
     <TextView
         android:id="@+id/tvLastname"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:paddingTop="15dp"
-        android:textAlignment="textStart"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvSurname"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:textColor="@color/white"
         tools:text="Александрович"/>
 
@@ -50,13 +45,24 @@
         android:id="@+id/tvPosition"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:paddingTop="15dp"
-        android:textAlignment="textStart"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="80dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
+        tools:text="Директор"/>
+
+    <TextView
+        android:id="@+id/tvSportClubs"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="80dp"
         android:textColor="@color/white"
-        tools:text="Директор"/>
+        android:layout_marginBottom="20dp"
+        tools:text="Minsk"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

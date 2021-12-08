@@ -42,7 +42,7 @@ class EventFragment: Fragment() {
             val eventAdapter = EventAdapter(eventsList)
             binding.rvEvent.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
             binding.rvEvent.adapter = eventAdapter
-            Thread.sleep(1000)
+            Thread.sleep(500)
             (activity as? MainActivity)?.openFragment(EventFragment())
         }
 

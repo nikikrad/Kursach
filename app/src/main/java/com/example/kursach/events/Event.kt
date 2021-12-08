@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName
 import java.net.Inet4Address
 
 data class Event(
-    @SerializedName("id")
     var idEvents: Int,
     var sport: String,
     var date: String,

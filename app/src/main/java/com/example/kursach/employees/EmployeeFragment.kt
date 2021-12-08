@@ -10,6 +10,7 @@ import com.example.kursach.addfragments.AddPositionFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.addfragments.AddEmployeeFragment
 import com.example.kursach.databinding.FragmentEmployeeBinding
+import com.example.kursach.services.ServiceEmployees
 import com.example.kursach.services.ServiceEmployees.employeesList
 
 class EmployeeFragment: Fragment() {
@@ -36,6 +37,16 @@ class EmployeeFragment: Fragment() {
         val EmployeeAdapter = EmployeeAdapter(employeesList)
         binding.rvEmployee.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvEmployee.adapter = EmployeeAdapter
+
+        binding.btnUpdate.setOnClickListener {
+            employeesList.clear()
+            ServiceEmployees.start()
+            val EmployeeAdapter = EmployeeAdapter(employeesList)
+            binding.rvEmployee.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+            binding.rvEmployee.adapter = EmployeeAdapter
+            Thread.sleep(500)
+            (activity as? MainActivity)?.openFragment(EmployeeFragment())
+        }
 
     }
 
