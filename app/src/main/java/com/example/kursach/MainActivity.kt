@@ -9,10 +9,9 @@ import android.widget.Toast
 import com.example.kursach.clubs.ClubFragment
 import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.events.EventFragment
+import com.example.kursach.services.*
 import com.example.kursach.sponsors.SponsorFragment
 import com.example.kursach.teams.TeamFragment
-import com.example.kursach.services.ServiceEvents
-import com.example.kursach.services.ServiceSportClubs
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         ServiceSportClubs.start()
         ServiceEvents.start()
+        ServiceTeams.start()
+        ServiceDischs.start()
+        ServiceKindOfSports.start()
+        ServicePositions.start()
+        ServiceRolls.start()
 
 
         binding.btnEvents.setOnClickListener {
