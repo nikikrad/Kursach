@@ -31,11 +31,13 @@ class SponsorAdapter(
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
         private val tvNumber: TextView = itemView.findViewById(R.id.tvNumber)
         private val tvEmail: TextView = itemView.findViewById(R.id.tvEmail)
-
+        private val tvSportClubs: TextView = itemView.findViewById(R.id.tvSportClubs)
+//tvSportClubs
         fun bind(item: Sponsor){
             tvName.text = item.Name
             tvNumber.text = item.Number
-            tvEmail.text = item.Email
+            tvEmail.text = item.Mail
+            tvSportClubs.text = item.idSportClubs.toString()
         }
     }
 }

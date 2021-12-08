@@ -20,6 +20,18 @@
         android:textColor="@color/white"
         tools:text="Liquid"/>
 
+    <TextView
+        android:id="@+id/tvSportClubs"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="50dp"
+        android:textColor="@color/white"
+        tools:text="Minsk"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import com.example.kursach.addfragments.AddTeamFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentPlayersBinding
+import com.example.kursach.services.ServicePlayers.playersList
 
 class PlayerFragment: Fragment() {
 
@@ -32,19 +33,8 @@ class PlayerFragment: Fragment() {
 
         }
 
-        var playerList = listOf(
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой"),
-                Player("Nikitpos", "Shurikov", "Olegovna", "1 Юношеский", "Гандонбол", "Угловой")
-        )
 
-        val playerAdapter = PlayerAdapter(playerList)
+        val playerAdapter = PlayerAdapter(playersList)
         binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvPlayer.adapter = playerAdapter
 

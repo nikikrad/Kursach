@@ -37,7 +37,7 @@ class EmployeeAdapter(
             tvName.text = item.Name
             tvSurname.text = item.Surname
             tvLastname.text = item.Lastname
-            tvPosition.text = item.Position
+            tvPosition.text = item.idPositions.toString()
         }
     }
 

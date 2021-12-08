@@ -40,9 +40,9 @@ class PlayerAdapter(
             tvName.text = item.Name
             tvSurname.text = item.Surname
             tvLastname.text = item.Lastname
-            tvDisch.text = item.Disch
-            tvKindOfSport.text = item.KindOfSport
-            tvRoll.text = item.Roll
+            tvDisch.text = item.idDischs.toString()
+            tvKindOfSport.text = item.idKindOfSports.toString()
+            tvRoll.text = item.idRolls.toString()
         }
     }
 

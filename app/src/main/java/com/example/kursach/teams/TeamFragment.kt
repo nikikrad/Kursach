@@ -36,8 +36,6 @@ class TeamFragment: Fragment(){
         binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvTeams.adapter = teamsAdapter
 
-
-
     }
 
     override fun onDestroy() {

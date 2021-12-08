@@ -41,7 +41,7 @@ object ServiceTeams {
                         if (teams != null) {
                             for (i in 0 until teams.count()) {
                                 val idTeams = teams[i].idTeams
-                                val name = teams[i].Name
+                                val name = teams[i].teamName
                                 val club = teams[i].idSportClubs
                                 teamsList.add(Team(idTeams, name, club))
                             }

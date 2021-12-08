@@ -32,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         ServiceKindOfSports.start()
         ServicePositions.start()
         ServiceRolls.start()
+        ServiceEmployees.start()
+        ServicePlayers.start()
+        ServiceSponsors.start()
 
 
         binding.btnEvents.setOnClickListener {

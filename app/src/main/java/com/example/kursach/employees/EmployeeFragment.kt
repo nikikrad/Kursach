@@ -10,6 +10,7 @@ import com.example.kursach.addfragments.AddPositionFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.addfragments.AddEmployeeFragment
 import com.example.kursach.databinding.FragmentEmployeeBinding
+import com.example.kursach.services.ServiceEmployees.employeesList
 
 class EmployeeFragment: Fragment() {
     lateinit var binding: FragmentEmployeeBinding
@@ -31,17 +32,8 @@ class EmployeeFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(AddPositionFragment())
         }
 
-        var employeeList = listOf(
-            Employee("Алёша","Алексеев","Хуесос", "Директор"),
-            Employee("Никитос","Шуриков","Александрович", "Хуесос"),
-            Employee("Ден","Скурик","Хуесос", "Норм"),
-            Employee("Синяга","Максимов","Писосов", "Орун"),
-            Employee("Андрей","Алексеев","Маруевич", "Бомж"),
-            Employee("Маруев","Синягов","Синягов", "Менеджер"),
-            Employee("Алёша","Что","Хуесос", "Стажер"),
-            )
 
-        val EmployeeAdapter = EmployeeAdapter(employeeList)
+        val EmployeeAdapter = EmployeeAdapter(employeesList)
         binding.rvEmployee.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvEmployee.adapter = EmployeeAdapter
 

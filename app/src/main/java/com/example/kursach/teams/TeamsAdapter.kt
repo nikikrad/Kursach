@@ -11,8 +11,6 @@ class TeamsAdapter(
     private val teamList: List<Team>
     ): RecyclerView.Adapter<TeamsAdapter.TeamsViewHolder>(){
 
-//    private lateinit var binding: BindingAdapter
-
     override fun getItemCount(): Int = teamList.size
 
     override fun onCreateViewHolder(
@@ -31,9 +29,11 @@ class TeamsAdapter(
     class TeamsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
+        private val tvSportClubs: TextView = itemView.findViewById(R.id.tvSportClubs)
 
         fun bind(item: Team){
-            tvName.text = item.Team
+            tvName.text = item.teamName
+            tvSportClubs.text = item.idSportClubs.toString()
         }
     }
 
