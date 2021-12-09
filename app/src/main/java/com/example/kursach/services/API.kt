@@ -3,6 +3,7 @@ package com.example.kursach.services
 import com.example.kursach.clubs.Club
 import com.example.kursach.dischs.Disch
 import com.example.kursach.employees.Employee
+import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.events.Event
 import com.example.kursach.kindofsports.KindOfSport
 import com.example.kursach.players.Player
@@ -11,7 +12,9 @@ import com.example.kursach.rolls.Roll
 import com.example.kursach.sponsors.Sponsor
 import com.example.kursach.teams.Team
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface API {
 
@@ -44,5 +47,8 @@ interface API {
 
    @GET("teams")
    fun getAllTeams(): Call<List<Team>>
+
+   @POST("employees/create")
+   fun sendEmployee(@Body employee: EmployeeBody): Call<EmployeeBody>
 
 }
