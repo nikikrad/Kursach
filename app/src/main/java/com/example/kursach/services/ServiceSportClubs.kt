@@ -15,6 +15,7 @@ object ServiceSportClubs {
 
     var clubsList: MutableList<Club> = emptyList<Club>().toMutableList()
     var processingAddress: MutableList<String> = emptyList<String>().toMutableList()
+    var idClubs: MutableList<Int> = emptyList<Int>().toMutableList()
 
     private const val URL = "http://10.0.2.2:3000/"
 
@@ -41,6 +42,7 @@ object ServiceSportClubs {
                         if (events != null) {
                             for (i in 0 until events.count()) {
                                 val id = events[i].idSportClubs
+                                idClubs.add(id)
                                 val address = events[i].sportAddress
                                 processingAddress.add(address)
                                 val number = events[i].sportNumber

@@ -12,11 +12,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object TestPostRequest
-//    private val employee: EmployeeBody
+class TestPostRequest(
+    private val employee: EmployeeBody
+)
  {
 
-    private const val URL = "http://10.0.2.2:3000/"
+    private  val URL = "http://10.0.2.2:3000/"
 
     fun start(){
 
@@ -31,7 +32,7 @@ object TestPostRequest
 
         val myApi = retrofit.create(API::class.java)
 
-        val call = myApi.sendEmployee(EmployeeBody(0,"Nikita", "Maruev", "Sinyagin", 1, 2))
+        val call = myApi.sendEmployee(employee)
         call.enqueue(object: Callback<EmployeeBody> {
 
             override fun onResponse(

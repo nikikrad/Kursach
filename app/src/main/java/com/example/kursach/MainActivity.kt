@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         ServiceEmployees.start()
         ServicePlayers.start()
         ServiceSponsors.start()
-        TestPostRequest.start()
+//        TestPostRequest(hui).start()
 
 
         binding.btnEvents.setOnClickListener {
