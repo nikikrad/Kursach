@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -38,16 +39,74 @@
         android:inputType="datetime"
         android:hint="Отчество*"/>
 
-    <EditText
-        android:id="@+id/etPosition"
-        android:layout_width="300dp"
+<!--    <EditText-->
+<!--        android:id="@+id/etPosition"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/etLastname"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:inputType="datetime"-->
+<!--        android:hint="Должность*"/>-->
+<!--    <Spinner-->
+<!--        android:id="@+id/sPositions"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/etLastname"/>-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/FirstPlaceholder"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLastname"
         app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="datetime"
-        android:hint="Должность*"/>
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/etLastname"
+        android:hint="Адрес">
+
+        <AutoCompleteTextView
+            android:background="@color/gray"
+            android:id="@+id/sAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--    <Spinner-->
+<!--        android:id="@+id/sSportClubs"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/sPositions"/>-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/SecondPlaceholder"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FirstPlaceholder"
+        android:background="@color/gray"
+        android:hint="Позиция">
+
+        <AutoCompleteTextView
+            android:id="@+id/sPositions"
+            android:background="@color/gray"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -55,9 +114,11 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPosition"
+        app:layout_constraintTop_toBottomOf="@+id/SecondPlaceholder"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
         android:text="Добавить"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

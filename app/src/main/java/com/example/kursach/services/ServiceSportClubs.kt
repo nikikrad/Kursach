@@ -14,6 +14,8 @@ object ServiceSportClubs {
 
 
     var clubsList: MutableList<Club> = emptyList<Club>().toMutableList()
+    var processingAddress: MutableList<String> = emptyList<String>().toMutableList()
+
     private const val URL = "http://10.0.2.2:3000/"
 
     fun start(){
@@ -40,6 +42,7 @@ object ServiceSportClubs {
                             for (i in 0 until events.count()) {
                                 val id = events[i].idSportClubs
                                 val address = events[i].sportAddress
+                                processingAddress.add(address)
                                 val number = events[i].sportNumber
                                 val mail = events[i].sportMail
                                 clubsList.add(Club(id, address, number, mail))
@@ -53,6 +56,7 @@ object ServiceSportClubs {
             override fun onFailure(call: Call<List<Club>>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
+
         })
     }
 

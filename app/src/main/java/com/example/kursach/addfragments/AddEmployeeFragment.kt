@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentAddemployeeBinding
 import com.example.kursach.employees.EmployeeFragment
+import android.widget.ArrayAdapter
+import com.example.kursach.R
+import com.example.kursach.services.ServiceSportClubs.processingAddress
+
 
 class AddEmployeeFragment: Fragment(){
 
@@ -27,6 +31,15 @@ class AddEmployeeFragment: Fragment(){
         binding.btnAdd.setOnClickListener {
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
+
+
+        setTextInputLayout()
+
+    }
+
+    fun setTextInputLayout() {
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
+        binding.autoCompleteTV.setAdapter(arrayAdapter)
     }
 
     override fun onDestroy() {
