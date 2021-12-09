@@ -46,7 +46,8 @@ object ServiceSponsors {
                                 val number = sponsors[i].Number
                                 val mail = sponsors[i].Mail
                                 val idSportClubs = sponsors[i].idSportClubs
-                                sponsorsList.add(Sponsor(idSponsors, name, number, mail, idSportClubs))
+                                val address = clubAddress(idSportClubs)
+                                sponsorsList.add(Sponsor(idSponsors, name, number, mail, idSportClubs, address))
                             }
                         }
                     }
@@ -56,6 +57,19 @@ object ServiceSponsors {
             override fun onFailure(call: Call<List<Sponsor>>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
+
+            fun clubAddress(idClub: Int): String{
+
+                var tempClub = ServiceSportClubs.clubsList
+
+                tempClub.forEach {
+                    if (it.idSportClubs == idClub){
+                        return it.sportAddress
+                    }
+                }
+                return "null"
+            }
+
         })
 
     }

@@ -10,6 +10,16 @@ import com.example.kursach.clubs.ClubFragment
 import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.events.EventFragment
 import com.example.kursach.services.*
+import com.example.kursach.services.ServiceDischs.dischsList
+import com.example.kursach.services.ServiceEmployees.employeesList
+import com.example.kursach.services.ServiceEvents.eventsList
+import com.example.kursach.services.ServiceKindOfSports.kindofsportsList
+import com.example.kursach.services.ServicePlayers.playersList
+import com.example.kursach.services.ServicePositions.positionsList
+import com.example.kursach.services.ServiceRolls.rollsList
+import com.example.kursach.services.ServiceSponsors.sponsorsList
+import com.example.kursach.services.ServiceSportClubs.clubsList
+import com.example.kursach.services.ServiceTeams.teamsList
 import com.example.kursach.sponsors.SponsorFragment
 import com.example.kursach.teams.TeamFragment
 
@@ -62,7 +72,18 @@ class MainActivity : AppCompatActivity() {
     private var exit = false
     override fun onBackPressed() {
         if (exit) {
+            eventsList.clear()
+            teamsList.clear()
+            dischsList.clear()
+            employeesList.clear()
+            kindofsportsList.clear()
+            playersList.clear()
+            positionsList.clear()
+            rollsList.clear()
+            sponsorsList.clear()
+            clubsList.clear()
             finish() // finish activity
+
         } else {
             Toast.makeText(
                 this, "Повторите действие для выхода из программы",

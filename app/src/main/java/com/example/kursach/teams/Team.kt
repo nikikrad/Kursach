@@ -6,5 +6,6 @@ data class Team(
     var idTeams: Int,
 //    @SerializedName("teamName")
     var teamName: String,
-    var idSportClubs: Int
+    var idSportClubs: Int,
+    var address: String
     )

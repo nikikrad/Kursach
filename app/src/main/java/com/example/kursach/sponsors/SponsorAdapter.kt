@@ -37,7 +37,7 @@ class SponsorAdapter(
             tvName.text = item.Name
             tvNumber.text = item.Number
             tvEmail.text = item.Mail
-            tvSportClubs.text = item.idSportClubs.toString()
+            tvSportClubs.text = item.address
         }
     }
 }

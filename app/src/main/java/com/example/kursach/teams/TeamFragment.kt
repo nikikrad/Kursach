@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddTeamFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentTeamBinding
+import com.example.kursach.events.EventAdapter
+import com.example.kursach.events.EventFragment
+import com.example.kursach.services.ServiceEvents
+import com.example.kursach.services.ServiceTeams
 import com.example.kursach.services.ServiceTeams.teamsList
 
 class TeamFragment: Fragment(){
@@ -35,6 +39,17 @@ class TeamFragment: Fragment(){
         val teamsAdapter = TeamsAdapter(teamsList)
         binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvTeams.adapter = teamsAdapter
+
+        binding.btnUpdate.setOnClickListener{
+
+            teamsList.clear()
+            ServiceTeams.start()
+            val teamsAdapter = TeamsAdapter(teamsList)
+            binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+            binding.rvTeams.adapter = teamsAdapter
+            Thread.sleep(500)
+            (activity as? MainActivity)?.openFragment(TeamFragment())
+        }
 
     }
 

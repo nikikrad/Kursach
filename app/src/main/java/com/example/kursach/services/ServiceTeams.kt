@@ -43,7 +43,8 @@ object ServiceTeams {
                                 val idTeams = teams[i].idTeams
                                 val name = teams[i].teamName
                                 val club = teams[i].idSportClubs
-                                teamsList.add(Team(idTeams, name, club))
+                                val address = clubAddress(club)
+                                teamsList.add(Team(idTeams, name, club, address))
                             }
                         }
                     }
@@ -53,6 +54,19 @@ object ServiceTeams {
             override fun onFailure(call: Call<List<Team>>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
+
+            fun clubAddress(idClub: Int): String{
+
+                var tempClub = ServiceSportClubs.clubsList
+
+                tempClub.forEach {
+                    if (it.idSportClubs == idClub){
+                        return it.sportAddress
+                    }
+                }
+                return "null"
+            }
+
         })
 
     }

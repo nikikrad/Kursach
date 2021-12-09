@@ -10,5 +10,6 @@ data class Sponsor(
     var Number: String,
     @SerializedName("sponsorMail")
     var Mail: String,
-    var idSportClubs: Int
+    var idSportClubs: Int,
+    var address: String
     )

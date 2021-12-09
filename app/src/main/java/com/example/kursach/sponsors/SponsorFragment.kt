@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.MainActivity
 import com.example.kursach.addfragments.AddSponsorFragment
 import com.example.kursach.databinding.FragmentSponsorBinding
+import com.example.kursach.services.ServiceSponsors
 import com.example.kursach.services.ServiceSponsors.sponsorsList
 
 class SponsorFragment: Fragment() {
@@ -32,6 +33,17 @@ class SponsorFragment: Fragment() {
         val sponsorAdapter = SponsorAdapter(sponsorsList)
         binding.rvSponsor.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvSponsor.adapter = sponsorAdapter
+
+        binding.btnUpdate.setOnClickListener {
+            sponsorsList.clear()
+            ServiceSponsors.start()
+            val sponsorAdapter = SponsorAdapter(sponsorsList)
+            binding.rvSponsor.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+            binding.rvSponsor.adapter = sponsorAdapter
+            Thread.sleep(500)
+            (activity as? MainActivity)?.openFragment(SponsorFragment())
+        }
+
     }
 
     override fun onDestroy() {

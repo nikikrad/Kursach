@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddClubFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentClubBinding
+import com.example.kursach.services.ServiceSportClubs
 import com.example.kursach.services.ServiceSportClubs.clubsList
 
 class ClubFragment: Fragment() {
@@ -34,6 +35,16 @@ class ClubFragment: Fragment() {
         val clubAdapter = ClubAdapter(clubsList)
         binding.rvClub.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvClub.adapter = clubAdapter
+
+        binding.btnUpdate.setOnClickListener {
+            clubsList.clear()
+            ServiceSportClubs.start()
+            val clubAdapter = ClubAdapter(clubsList)
+            binding.rvClub.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+            binding.rvClub.adapter = clubAdapter
+            Thread.sleep(500)
+            (activity as? MainActivity)?.openFragment(ClubFragment())
+        }
 
     }
 

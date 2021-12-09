@@ -33,7 +33,7 @@ class TeamsAdapter(
 
         fun bind(item: Team){
             tvName.text = item.teamName
-            tvSportClubs.text = item.idSportClubs.toString()
+            tvSportClubs.text = item.address
         }
     }
 
