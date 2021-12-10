@@ -51,4 +51,6 @@ interface API {
    @POST("employees/create")
    fun sendEmployee(@Body employee: EmployeeBody): Call<EmployeeBody>
 
+   @POST("positions/create")
+   fun sendPosition(@Body position: Position): Call <Position>
 }

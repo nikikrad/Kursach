@@ -11,14 +11,11 @@ import com.example.kursach.employees.EmployeeFragment
 import android.widget.ArrayAdapter
 import com.example.kursach.R
 import com.example.kursach.employees.EmployeeBody
-import com.example.kursach.services.ServiceEmployees
 import com.example.kursach.services.ServicePositions.idPositionsList
 import com.example.kursach.services.ServicePositions.positionsNameList
-import com.example.kursach.services.ServiceSportClubs
-import com.example.kursach.services.ServiceSportClubs.clubsList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
-import com.example.kursach.services.TestPostRequest
+import com.example.kursach.services.PostEmployee
 
 
 class AddEmployeeFragment: Fragment(){
@@ -81,7 +78,7 @@ class AddEmployeeFragment: Fragment(){
 
 
         val employee = EmployeeBody(0,  name, surname, lastname, counter, num)
-        TestPostRequest(employee).start()
+        PostEmployee(employee).start()
     }
 
     override fun onDestroy() {

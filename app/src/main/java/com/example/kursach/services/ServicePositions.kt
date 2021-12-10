@@ -47,7 +47,7 @@ object ServicePositions {
                             idPositionsList.add(idPositions)
                             val name = positions[i].Name
                             positionsNameList.add(name)
-                            ServicePositions.positionsList.add(Position(idPositions, name))
+                            positionsList.add(Position(idPositions, name))
                         }
                     }
 //                    positionsList.clear()
