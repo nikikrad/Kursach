@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter
 import com.example.kursach.R
 import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.services.ServiceEmployees
+import com.example.kursach.services.ServicePositions.idPositionsList
+import com.example.kursach.services.ServicePositions.positionsNameList
 import com.example.kursach.services.ServiceSportClubs
 import com.example.kursach.services.ServiceSportClubs.clubsList
 import com.example.kursach.services.ServiceSportClubs.idClubs
@@ -49,6 +51,9 @@ class AddEmployeeFragment: Fragment(){
     fun setTextInputLayout() {
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
+
+        val posAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, positionsNameList)
+        binding.sPositions.setAdapter(posAdapter)
     }
 
     fun assemblyEmployee(){
@@ -56,17 +61,26 @@ class AddEmployeeFragment: Fragment(){
         var surname = binding.etSurname.text.toString()
         var lastname = binding.etLastname.text.toString()
         var buf = binding.sAddress.text.toString()
+
         var num = 0
+        var i = 0
         processingAddress.forEach {
-            var i = 0
             if (buf == processingAddress[i]){
                 num = idClubs[i]
             }else i += 1
         }
 
-        var position: Int = 1
+        var counter: Int = 0
+        i = 0
+        buf = binding.sPositions.text.toString()
+        positionsNameList.forEach {
+            if(buf == positionsNameList[i])
+                counter = idPositionsList[i]
+            else i += 1
+        }
 
-        val employee = EmployeeBody(0,  name, surname, lastname, position, 2)
+
+        val employee = EmployeeBody(0,  name, surname, lastname, counter, num)
         TestPostRequest(employee).start()
     }
 
