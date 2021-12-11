@@ -8,6 +8,7 @@ import com.example.kursach.events.Event
 import com.example.kursach.events.EventBody
 import com.example.kursach.kindofsports.KindOfSport
 import com.example.kursach.players.Player
+import com.example.kursach.players.PlayerBody
 import com.example.kursach.positions.Position
 import com.example.kursach.rolls.Roll
 import com.example.kursach.sponsors.Sponsor

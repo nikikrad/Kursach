@@ -1,28 +1,26 @@
 package com.example.kursach.teams
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddTeamFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentTeamBinding
-import com.example.kursach.events.EventAdapter
-import com.example.kursach.events.EventFragment
 import com.example.kursach.players.PlayerFragment
-import com.example.kursach.services.ServiceEvents
+import com.example.kursach.players.PlayerFragment.Companion.TEAMLIST
 import com.example.kursach.services.ServiceTeams
 import com.example.kursach.services.ServiceTeams.teamsList
 
 class TeamFragment: Fragment(){
-//    lateinit var clickTeam: ClickTeam
 
     lateinit var binding: FragmentTeamBinding
+//    lateinit var bundle: Bundle
+//    val intent: Intent = Intent(context, PlayerFragment::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,10 +38,7 @@ class TeamFragment: Fragment(){
         }
 
 
-        val teamsAdapter = TeamsAdapter(
-            teamsList,
-            { team -> teamClickListener(team) }
-        )
+        var teamsAdapter = TeamsAdapter(teamsList,{ team -> teamClickListener(team) })
         binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvTeams.adapter = teamsAdapter
 
@@ -51,7 +46,6 @@ class TeamFragment: Fragment(){
 
             teamsList.clear()
             ServiceTeams.start()
-            val teamsAdapter = TeamsAdapter(teamsList, { team -> teamClickListener(team)})
             binding.rvTeams.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
             binding.rvTeams.adapter = teamsAdapter
             Thread.sleep(500)
@@ -61,8 +55,12 @@ class TeamFragment: Fragment(){
     }
 
     private fun teamClickListener(team: Team){
+
         Toast.makeText(context, team.toString(), Toast.LENGTH_SHORT).show()
         (activity as MainActivity).openFragment(PlayerFragment())
+        PlayerFragment().setTeam(team)
+//        bundle.putParcelableArrayList(TEAMLIST.toString(), team)
+//        intent.putExtra(TEAMLIST, team)
 
     }
 
