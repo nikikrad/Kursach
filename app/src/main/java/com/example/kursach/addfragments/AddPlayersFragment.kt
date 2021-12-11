@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentAddplayersBinding
 import com.example.kursach.events.EventFragment
+import com.example.kursach.players.PlayerFragment
 
 class AddPlayersFragment: Fragment() {
 
@@ -23,8 +24,11 @@ class AddPlayersFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.btnAdd.setOnClickListener{
 
-        (activity as? MainActivity)?.openFragment(EventFragment())
+            (activity as? MainActivity)?.openFragment(PlayerFragment())
+        }
+
 
     }
 

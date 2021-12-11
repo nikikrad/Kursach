@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddTeamFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
+import com.example.kursach.addfragments.AddEventFragment
+import com.example.kursach.addfragments.AddPlayersFragment
+import com.example.kursach.addfragments.AddRollFragment
 import com.example.kursach.databinding.FragmentPlayersBinding
 import com.example.kursach.services.ServicePlayers.playersList
 
@@ -28,10 +31,14 @@ class PlayerFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        binding.btnBack.setOnClickListener {
-            (activity as MainActivity).openFragment(AddTeamFragment())
 
+        binding.btnAddPlayer.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(AddPlayersFragment())
         }
+        binding.btnRoll.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(AddRollFragment())
+        }
+
 
 
         val playerAdapter = PlayerAdapter(playersList)

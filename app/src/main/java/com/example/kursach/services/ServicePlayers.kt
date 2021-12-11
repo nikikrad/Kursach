@@ -48,6 +48,7 @@ object ServicePlayers {
                                 val idDischs = players[i].idDischs
                                 val idTeams = players[i].idTeams
                                 val idKindOfSports = players[i].idKindOfSports
+
                                 val idRolls = players[i].idRolls
                                 playersList.add(Player(idPlayers, name, sername, lastname, idDischs, idTeams, idKindOfSports, idRolls))
                             }
@@ -58,6 +59,18 @@ object ServicePlayers {
 
             override fun onFailure(call: Call<List<Player>>, t: Throwable) {
                 Log.e("KEK", t.toString())
+            }
+
+            fun clubAddress(idClub: Int): String{
+
+                var tempClub = ServiceSportClubs.clubsList
+
+                tempClub.forEach {
+                    if (it.idSportClubs == idClub){
+                        return it.sportAddress
+                    }
+                }
+                return "null"
             }
         })
 

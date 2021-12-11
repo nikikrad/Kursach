@@ -11,29 +11,12 @@
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddPlayer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnKindOfSport"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnRoll"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnDisch"
-        android:layout_marginTop="5dp"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Разряд"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnKindOfSport"
-        android:layout_marginTop="5dp"
-        android:layout_width="140dp"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Вид спорта"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRoll"
@@ -42,6 +25,7 @@
         android:layout_height="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:text="Роль"/>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -55,17 +39,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="Добавить Игрока"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/btnBack"
+    <ImageButton
+        android:id="@+id/btnUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="22dp"
-        android:background="@color/dark_purple"
-        android:text="back"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:textAlignment="center"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_update"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="20dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

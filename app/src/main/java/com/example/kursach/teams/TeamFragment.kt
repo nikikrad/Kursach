@@ -13,6 +13,7 @@ import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentTeamBinding
 import com.example.kursach.events.EventAdapter
 import com.example.kursach.events.EventFragment
+import com.example.kursach.players.PlayerFragment
 import com.example.kursach.services.ServiceEvents
 import com.example.kursach.services.ServiceTeams
 import com.example.kursach.services.ServiceTeams.teamsList
@@ -59,7 +60,8 @@ class TeamFragment: Fragment(){
     }
 
     private fun teamClickListener(team: Team){
-        Toast.makeText(context, team.toString(), Toast.LENGTH_LONG).show()
+        Toast.makeText(context, team.toString(), Toast.LENGTH_SHORT).show()
+        (activity as MainActivity).openFragment(PlayerFragment())
     }
 
     override fun onDestroy() {

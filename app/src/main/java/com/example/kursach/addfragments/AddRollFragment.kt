@@ -24,7 +24,10 @@ class AddRollFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        (activity as? MainActivity)?.openFragment(EventFragment())
+        binding.btnAdd.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(EventFragment())
+        }
+
 
     }
 
