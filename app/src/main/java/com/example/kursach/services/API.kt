@@ -5,12 +5,15 @@ import com.example.kursach.dischs.Disch
 import com.example.kursach.employees.Employee
 import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.events.Event
+import com.example.kursach.events.EventBody
 import com.example.kursach.kindofsports.KindOfSport
 import com.example.kursach.players.Player
 import com.example.kursach.positions.Position
 import com.example.kursach.rolls.Roll
 import com.example.kursach.sponsors.Sponsor
+import com.example.kursach.sponsors.SponsorBody
 import com.example.kursach.teams.Team
+import com.example.kursach.teams.TeamBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -53,4 +56,28 @@ interface API {
 
    @POST("positions/create")
    fun sendPosition(@Body position: Position): Call <Position>
+
+   @POST("sponsors/create")
+   fun sendSponsor(@Body sponsor: SponsorBody): Call <SponsorBody>
+
+   @POST("sportclubs/create")
+   fun sendSportClub(@Body clubs: Club): Call <Club>
+
+   @POST("events/create")
+   fun sendEvent(@Body event: EventBody): Call <EventBody>
+
+   @POST("teams/create")
+   fun sendTeam(@Body team: TeamBody): Call <TeamBody>
+
+   @POST("players/create")
+   fun sendPlayer(@Body player: Player): Call <Player>
+
+   @POST("rolls/create")
+   fun sendRoll(@Body roll: Roll): Call <Roll>
+
+   @POST("dischs/create")
+   fun sendDisch(@Body disch: Disch): Call <Disch>
+
+   @POST("kindofsports/create")
+   fun sendKindOfSport(@Body kindofsport: KindOfSport): Call <KindOfSport>
 }

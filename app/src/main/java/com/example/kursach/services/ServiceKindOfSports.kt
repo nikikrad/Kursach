@@ -1,6 +1,7 @@
 package com.example.kursach.services
 
 import android.util.Log
+import com.example.kursach.clubs.Club
 import com.example.kursach.kindofsports.KindOfSport
 import com.example.kursach.positions.Position
 import com.google.gson.Gson
@@ -13,6 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceKindOfSports {
 
+    var processingSports: MutableList<String> = emptyList<String>().toMutableList()
+    var idSport: MutableList<Int> = emptyList<Int>().toMutableList()
     var kindofsportsList: MutableList<KindOfSport> = emptyList<KindOfSport>().toMutableList()
     private const val URL = "http://10.0.2.2:3000/"
 
@@ -37,10 +40,16 @@ object ServiceKindOfSports {
                 response: Response<List<KindOfSport>>
             ) {
                 if (response.isSuccessful){
-                    val sports = response.body()
-                    kindofsportsList.clear()
-                    sports?.forEach{
-                        kindofsportsList.add(it)
+                    val sport = response.body()
+                    if (sport != null) {
+                        for (i in 0 until sport.count()) {
+                            val id = sport[i].idKindOfSport
+                            idSport.add(id)
+                            val KindOfSports = sport[i].KindOfSports
+                            processingSports.add(KindOfSports)
+                            kindofsportsList.add(KindOfSport(id, KindOfSports))
+                            Log.e("KEK", ServiceEvents.eventsList.toString())
+                        }
                     }
                     Log.e("KEK", kindofsportsList.toString())
                 }else Log.e("KEK", "ERROR")

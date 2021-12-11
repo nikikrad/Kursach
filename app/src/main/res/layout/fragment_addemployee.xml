@@ -39,24 +39,6 @@
         android:inputType="textCapSentences"
         android:hint="Отчество*"/>
 
-<!--    <EditText-->
-<!--        android:id="@+id/etPosition"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/etLastname"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:inputType="datetime"-->
-<!--        android:hint="Должность*"/>-->
-<!--    <Spinner-->
-<!--        android:id="@+id/sPositions"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/etLastname"/>-->
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"

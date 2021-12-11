@@ -16,12 +16,32 @@
         android:inputType="textCapSentences"
         android:hint="Имя команды*"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/FirstPlaceholder"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/etTeam"
+        android:hint="Адрес">
+
+        <AutoCompleteTextView
+            android:background="@color/gray"
+            android:id="@+id/sAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAdd"
         android:layout_width="150dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTeam"
+        app:layout_constraintTop_toBottomOf="@+id/FirstPlaceholder"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
         android:text="Добавить"/>

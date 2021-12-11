@@ -9,6 +9,8 @@ import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentAddemployeeBinding
 import com.example.kursach.employees.EmployeeFragment
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import com.example.kursach.R
 import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.services.ServicePositions.idPositionsList
@@ -16,6 +18,7 @@ import com.example.kursach.services.ServicePositions.positionsNameList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
 import com.example.kursach.services.PostEmployee
+import com.example.kursach.services.ServiceSportClubs
 
 
 class AddEmployeeFragment: Fragment(){
@@ -31,21 +34,27 @@ class AddEmployeeFragment: Fragment(){
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.btnAdd.setOnClickListener {
+
+            assemblyEmployee()
+
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
-        binding.btnAdd.setOnClickListener {
-            assemblyEmployee()
-        }
 
         setTextInputLayout()
 
     }
 
     fun setTextInputLayout() {
+
+        positionsNameList.clear()
+        processingAddress.clear()
+        ServiceSportClubs.start()
+
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
 
@@ -58,7 +67,6 @@ class AddEmployeeFragment: Fragment(){
         var surname = binding.etSurname.text.toString()
         var lastname = binding.etLastname.text.toString()
         var buf = binding.sAddress.text.toString()
-
         var num = 0
         var i = 0
         processingAddress.forEach {

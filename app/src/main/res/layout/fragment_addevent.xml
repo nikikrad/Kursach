@@ -5,16 +5,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/gray">
 
-    <EditText
+<!--    <EditText-->
+<!--        android:id="@+id/etKindOfSport"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="150dp"-->
+<!--        android:inputType="textCapSentences"-->
+<!--        android:hint="Вид спорта*"/>-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:id="@+id/etKindOfSport"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
         android:layout_marginTop="150dp"
-        android:inputType="textCapSentences"
-        android:hint="Вид спорта*"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/gray"
+        android:hint="Вид спорта*">
+
+        <AutoCompleteTextView
+            android:background="@color/gray"
+            android:id="@+id/sSport"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <EditText
         android:id="@+id/etDate"
@@ -38,12 +60,32 @@
         android:inputType="datetime"
         android:hint="Время*"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/FirstPlaceholder"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/etTime"
+        android:hint="Адрес">
+
+        <AutoCompleteTextView
+            android:background="@color/gray"
+            android:id="@+id/sAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAdd"
         android:layout_width="150dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTime"
+        app:layout_constraintTop_toBottomOf="@+id/FirstPlaceholder"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
         android:text="Добавить"/>
