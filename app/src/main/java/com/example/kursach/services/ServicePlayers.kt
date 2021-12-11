@@ -14,6 +14,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServicePlayers {
 
     var playersList: MutableList<Player> = emptyList<Player>().toMutableList()
+
+    var disch: MutableList<String> = emptyList<String>().toMutableList()
+    var kindofsport: MutableList<String> = emptyList<String>().toMutableList()
     private const val URL = "http://10.0.2.2:3000/"
 
     fun start(){
@@ -43,14 +46,17 @@ object ServicePlayers {
                             for (i in 0 until players.count()) {
                                 val idPlayers = players[i].idPlayers
                                 val name = players[i].Name
-                                val sername = players[i].Surname
+                                val surname = players[i].Surname
                                 val lastname = players[i].Lastname
                                 val idDischs = players[i].idDischs
+                                val disch = dischName(idDischs)
                                 val idTeams = players[i].idTeams
+                                val team = teamName(idTeams)
                                 val idKindOfSports = players[i].idKindOfSports
-
+                                val kindofsport = sportName(idKindOfSports)
                                 val idRolls = players[i].idRolls
-                                playersList.add(Player(idPlayers, name, sername, lastname, idDischs, idTeams, idKindOfSports, idRolls))
+                                val roll = rollName(idRolls)
+                                playersList.add(Player(idPlayers, name, surname, lastname, idDischs, disch, idTeams, team, idKindOfSports, kindofsport, idRolls, roll))
                             }
                         }
                     }
@@ -61,17 +67,54 @@ object ServicePlayers {
                 Log.e("KEK", t.toString())
             }
 
-            fun clubAddress(idClub: Int): String{
+            fun dischName(idDisch: Int): String{
 
-                var tempClub = ServiceSportClubs.clubsList
+                var tempDisch = ServiceDischs.dischsList
 
-                tempClub.forEach {
-                    if (it.idSportClubs == idClub){
-                        return it.sportAddress
+                tempDisch.forEach {
+                    if (it.idDischs == idDisch){
+                        return it.disch
                     }
                 }
                 return "null"
             }
+
+            fun teamName(idTeam: Int): String{
+
+                var tempTeam = ServiceTeams.teamsList
+
+                tempTeam.forEach {
+                    if (it.idTeams == idTeam){
+                        return it.teamName
+                    }
+                }
+                return "null"
+            }
+
+            fun sportName(idSport: Int): String{
+
+                var tempSport = ServiceKindOfSports.kindofsportsList
+
+                tempSport.forEach {
+                    if (it.idKindOfSport == idSport){
+                        return it.KindOfSports
+                    }
+                }
+                return "null"
+            }
+
+            fun rollName(idRoll: Int): String{
+
+                var tempRoll = ServiceRolls.rollsList
+
+                tempRoll.forEach {
+                    if (it.idRolls == idRoll){
+                        return it.roll
+                    }
+                }
+                return "null"
+            }
+
         })
 
     }

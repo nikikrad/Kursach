@@ -70,7 +70,7 @@ interface API {
    fun sendTeam(@Body team: TeamBody): Call <TeamBody>
 
    @POST("players/create")
-   fun sendPlayer(@Body player: Player): Call <Player>
+   fun sendPlayer(@Body player: PlayerBody): Call <PlayerBody>
 
    @POST("rolls/create")
    fun sendRoll(@Body roll: Roll): Call <Roll>

@@ -11,7 +11,11 @@ data class Player(
         @SerializedName("pLastName")
         var Lastname: String,
         var idDischs: Int,
+        var DischName: String,
         var idTeams: Int,
+        var TeamName: String,
         var idKindOfSports: Int,
-        var idRolls: Int
+        var SportName: String,
+        var idRolls: Int,
+        var RollName: String
 )

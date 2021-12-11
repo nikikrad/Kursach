@@ -14,6 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceRolls {
 
     var rollsList: MutableList<Roll> = emptyList<Roll>().toMutableList()
+    var idroll: MutableList<Int> = emptyList<Int>().toMutableList()
+    var roll: MutableList<String> = emptyList<String>().toMutableList()
     private const val URL = "http://10.0.2.2:3000/"
 
     fun start() {
@@ -38,11 +40,15 @@ object ServiceRolls {
             ) {
                 if (response.isSuccessful){
                     val rolls = response.body()
-                    rollsList.clear()
-                    rolls?.forEach{
-                        rollsList.add(it)
+                    if (rolls != null) {
+                        for (i in 0 until rolls.count()) {
+                            val id = rolls[i].idRolls
+                            idroll.add(id)
+                            val rollName = rolls[i].roll
+                            roll.add(rollName)
+                            ServiceDischs.dischsList.add(Disch(id, rollName))
+                        }
                     }
-                    Log.e("KEK", rollsList.toString())
                 }else Log.e("KEK", "ERROR")
             }
 

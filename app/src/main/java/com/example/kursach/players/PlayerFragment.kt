@@ -14,6 +14,7 @@ import com.example.kursach.addfragments.AddPlayersFragment
 import com.example.kursach.addfragments.AddRollFragment
 import com.example.kursach.databinding.FragmentPlayersBinding
 import com.example.kursach.services.ServicePlayers.playersList
+import com.example.kursach.teams.TeamFragment
 
 class PlayerFragment: Fragment() {
 

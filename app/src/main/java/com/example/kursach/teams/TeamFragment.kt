@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddTeamFragment
@@ -62,6 +63,7 @@ class TeamFragment: Fragment(){
     private fun teamClickListener(team: Team){
         Toast.makeText(context, team.toString(), Toast.LENGTH_SHORT).show()
         (activity as MainActivity).openFragment(PlayerFragment())
+
     }
 
     override fun onDestroy() {
