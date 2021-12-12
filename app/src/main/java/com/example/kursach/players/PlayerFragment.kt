@@ -27,12 +27,14 @@ class PlayerFragment: Fragment() {
 
     lateinit var binding: FragmentPlayersBinding
 
-    private var definityTeam: MutableList<Player> = emptyList<Player>().toMutableList()
+//    private var definityTeam: MutableList<Player> = emptyList<Player>().toMutableList()
     private var team: Team? = null
     lateinit var variableTeam: Team
 
     companion object{
         lateinit var TEAMLIST: Team
+        var definityTeam: MutableList<Player> = emptyList<Player>().toMutableList()
+        var idTeam: Int = TEAMLIST.idTeams
     }
 
     override fun onCreateView(
