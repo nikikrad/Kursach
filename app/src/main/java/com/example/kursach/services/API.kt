@@ -16,9 +16,7 @@ import com.example.kursach.sponsors.SponsorBody
 import com.example.kursach.teams.Team
 import com.example.kursach.teams.TeamBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface API {
 
@@ -81,4 +79,24 @@ interface API {
 
    @POST("kindofsports/create")
    fun sendKindOfSport(@Body kindofsport: KindOfSport): Call <KindOfSport>
+
+   @FormUrlEncoded
+   @PUT("positions/update/{id}")
+   fun   updatePosition(
+      @Path("id") id: Int,
+      @Field("positionName") Name: String
+   ): Call<Position>
+
+   @FormUrlEncoded
+   @PUT("players/update/{id}")
+   fun updatePlayer(
+      @Path("id") id: Int,
+      @Field("pFirstName") pFirstName: String,
+      @Field("pSurName") pSurName: String,
+      @Field("pLastName") pLastName: String,
+      @Field("idDischs") idDischs: Int,
+      @Field("idTeams") idTeams: Int,
+      @Field("idKindOfSports") idKindOfSports: Int,
+      @Field("idRolls") idRolls: Int
+   )
 }

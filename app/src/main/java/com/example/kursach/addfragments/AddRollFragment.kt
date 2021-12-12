@@ -9,15 +9,18 @@ import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentAddrollBinding
 import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.events.EventFragment
+import com.example.kursach.players.PlayerFragment
 import com.example.kursach.rolls.Roll
 import com.example.kursach.services.PostPosition
 import com.example.kursach.services.PostRoll
 import com.example.kursach.services.ServicePositions
 import com.example.kursach.services.ServiceRolls
+import com.example.kursach.teams.Team
 
 
-class AddRollFragment: Fragment() {
+class AddRollFragment (var team: Team): Fragment() {
 
+    var bufTeam = team
     lateinit var binding: FragmentAddrollBinding
 
     override fun onCreateView(
@@ -40,7 +43,7 @@ class AddRollFragment: Fragment() {
             ServiceRolls.rollsList.clear()
             ServiceRolls.roll.clear()
             ServiceRolls.start()
-            (activity as? MainActivity)?.openFragment(EmployeeFragment())
+            (activity as? MainActivity)?.openFragment(PlayerFragment(bufTeam))
         }
 
     }

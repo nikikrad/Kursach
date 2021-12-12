@@ -27,4 +27,52 @@
         android:layout_marginTop="40dp"
         android:text="Добавить"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDelete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FB1100"
+        android:text="Удалить"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/spinner"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_goneMarginTop="20dp"
+        android:background="@color/gray"
+        android:hint="Вид спорта*"
+        android:visibility="invisible">
+
+        <AutoCompleteTextView
+            android:background="@color/gray"
+            android:id="@+id/sPositions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"
+        android:text="Редактировать"/>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

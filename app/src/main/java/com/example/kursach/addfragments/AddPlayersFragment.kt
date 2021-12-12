@@ -14,6 +14,7 @@ import com.example.kursach.events.EventFragment
 import com.example.kursach.players.Player
 import com.example.kursach.players.PlayerBody
 import com.example.kursach.players.PlayerFragment
+import com.example.kursach.put.PutPlayerFragment
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceDischs.disch
 import com.example.kursach.services.ServiceKindOfSports.processingSports
@@ -41,6 +42,10 @@ class AddPlayersFragment(var team: Team): Fragment() {
         binding.btnAdd.setOnClickListener {
             assemblyPlayer()
             (activity as? MainActivity)?.openFragment(PlayerFragment(teamNaming))
+        }
+
+        binding.btnEdit.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(PutPlayerFragment(teamNaming))
         }
     }
     fun setTextInputLayout() {

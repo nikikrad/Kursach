@@ -3,6 +3,7 @@ package com.example.kursach.services
 import android.util.Log
 import com.example.kursach.dischs.Disch
 import com.example.kursach.kindofsports.KindOfSport
+import com.example.kursach.services.URL.url
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -18,7 +19,7 @@ object ServiceDischs {
     var disch: MutableList<String> = emptyList<String>().toMutableList()
 
 
-    private const val URL = "http://10.0.2.2:3000/"
+    private  val URL = url
 
     fun start() {
 

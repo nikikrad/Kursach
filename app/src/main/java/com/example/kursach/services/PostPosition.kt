@@ -3,6 +3,7 @@ package com.example.kursach.services
 import android.util.Log
 import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.positions.Position
+import com.example.kursach.services.URL.url
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -14,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class PostPosition(
     private var position: Position
 ) {
-    private  val URL = "http://10.0.2.2:3000/"
+    private  val URL = url
 
     fun start(){
 

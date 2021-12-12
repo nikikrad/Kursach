@@ -4,12 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class PlayerBody(
     var idPlayers: Int,
-    @SerializedName("pFirstName")
-    var Name: String,
-    @SerializedName("pSurName")
-    var Surname: String,
-    @SerializedName("pLastName")
-    var Lastname: String,
+    var pFirstName: String,
+    var pSurName: String,
+    var pLastName: String,
     var idDischs: Int,
     var idTeams: Int,
     var idKindOfSports: Int,

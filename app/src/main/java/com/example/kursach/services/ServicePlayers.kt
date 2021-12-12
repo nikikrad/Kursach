@@ -2,6 +2,7 @@ package com.example.kursach.services
 
 import android.util.Log
 import com.example.kursach.players.Player
+import com.example.kursach.services.URL.url
 import com.example.kursach.sponsors.Sponsor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -14,8 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServicePlayers {
 
     var playersList: MutableList<Player> = emptyList<Player>().toMutableList()
+    var playerName: MutableList<String> = emptyList<String>().toMutableList()
+    var playerSurname: MutableList<String> = emptyList<String>().toMutableList()
+    var playerLastname: MutableList<String> = emptyList<String>().toMutableList()
+    var numberTeam: MutableList<Int> = emptyList<Int>().toMutableList()
 
-    private const val URL = "http://10.0.2.2:3000/"
+    private val URL = url
 
     fun start(){
 
@@ -44,11 +49,15 @@ object ServicePlayers {
                             for (i in 0 until players.count()) {
                                 val idPlayers = players[i].idPlayers
                                 val name = players[i].Name
+                                playerName.add(name)
                                 val surname = players[i].Surname
+                                playerSurname.add(surname)
                                 val lastname = players[i].Lastname
+                                playerLastname.add(lastname)
                                 val idDischs = players[i].idDischs
                                 val disch = dischName(idDischs)
                                 val idTeams = players[i].idTeams
+                                numberTeam.add(idTeams)
                                 val team = teamName(idTeams)
                                 val idKindOfSports = players[i].idKindOfSports
                                 val kindofsport = sportName(idKindOfSports)

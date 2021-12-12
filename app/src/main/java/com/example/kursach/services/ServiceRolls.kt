@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.kursach.dischs.Disch
 import com.example.kursach.positions.Position
 import com.example.kursach.rolls.Roll
+import com.example.kursach.services.URL.url
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -17,7 +18,8 @@ object ServiceRolls {
     var rollsList: MutableList<Roll> = emptyList<Roll>().toMutableList()
     var idroll: MutableList<Int> = emptyList<Int>().toMutableList()
     var roll: MutableList<String> = emptyList<String>().toMutableList()
-    private const val URL = "http://10.0.2.2:3000/"
+
+    private val URL = url
 
     fun start() {
 

@@ -2,6 +2,7 @@ package com.example.kursach.services
 
 import android.util.Log
 import com.example.kursach.employees.EmployeeBody
+import com.example.kursach.services.URL.url
 import com.example.kursach.sponsors.SponsorBody
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -16,7 +17,7 @@ class PostSponsor(
 ) {
 
 
-    private  val URL = "http://10.0.2.2:3000/"
+    private  val URL = url
 
     fun start(){
 

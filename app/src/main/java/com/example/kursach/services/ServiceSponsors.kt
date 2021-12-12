@@ -1,6 +1,7 @@
 package com.example.kursach.services
 
 import android.util.Log
+import com.example.kursach.services.URL.url
 import com.example.kursach.sponsors.Sponsor
 import com.example.kursach.teams.Team
 import com.google.gson.Gson
@@ -14,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceSponsors {
 
     var sponsorsList: MutableList<Sponsor> = emptyList<Sponsor>().toMutableList()
-    private const val URL = "http://10.0.2.2:3000/"
+    private  val URL = url
 
     fun start(){
 

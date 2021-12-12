@@ -3,6 +3,7 @@ package com.example.kursach.services
 import android.util.Log
 import com.example.kursach.employees.Employee
 import com.example.kursach.players.Player
+import com.example.kursach.services.URL.url
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -15,7 +16,7 @@ object ServiceEmployees {
 
 
     var employeesList: MutableList<Employee> = emptyList<Employee>().toMutableList()
-    private const val URL = "http://10.0.2.2:3000/"
+    private  val URL = url
 
     fun start(){
 

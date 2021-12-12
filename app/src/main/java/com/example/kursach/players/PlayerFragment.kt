@@ -58,7 +58,7 @@ class PlayerFragment(var team: Team): Fragment() {
             (activity as? MainActivity)?.openFragment(AddPlayersFragment(teamNaming))
         }
         binding.btnRoll.setOnClickListener {
-            (activity as? MainActivity)?.openFragment(AddRollFragment())
+            (activity as? MainActivity)?.openFragment(AddRollFragment(teamNaming))
         }
 
         binding.tvNameTeam.setText(teamNaming.teamName)
