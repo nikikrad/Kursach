@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName"
         app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="date"
+        android:inputType="textCapSentences"
         android:hint="Фамилия*"/>
 
     <EditText
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSurname"
         app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="datetime"
+        android:inputType="textCapSentences"
         android:hint="Отчество*"/>
 
 
@@ -91,7 +91,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/gray"
-        android:hint="Разряд*">
+        android:hint="Роль*">
 
         <AutoCompleteTextView
             android:background="@color/gray"

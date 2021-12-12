@@ -15,11 +15,15 @@ import com.example.kursach.players.Player
 import com.example.kursach.players.PlayerBody
 import com.example.kursach.players.PlayerFragment
 import com.example.kursach.services.*
+import com.example.kursach.services.ServiceDischs.disch
+import com.example.kursach.services.ServiceKindOfSports.processingSports
+import com.example.kursach.services.ServiceRolls.roll
 import com.example.kursach.teams.Team
 
-class AddPlayersFragment: Fragment() {
+class AddPlayersFragment(var team: Team): Fragment() {
 
     lateinit var binding: FragmentAddplayersBinding
+    var teamNaming = team
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,19 +40,26 @@ class AddPlayersFragment: Fragment() {
 
         binding.btnAdd.setOnClickListener {
             assemblyPlayer()
-            (activity as? MainActivity)?.openFragment(PlayerFragment())
+            (activity as? MainActivity)?.openFragment(PlayerFragment(teamNaming))
         }
     }
     fun setTextInputLayout() {
 
-        val firstAdapter = ArrayAdapter(requireContext(),R.layout.item_spinner,ServiceKindOfSports.processingSports)
-        binding.sDisch.setAdapter(firstAdapter)
+        processingSports.clear()
+        disch.clear()
+        roll.clear()
+        ServiceKindOfSports.start()
+        ServiceDischs.start()
+        ServiceRolls.start()
 
-        val dischAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServiceDischs.disch)
+        val firstAdapter = ArrayAdapter(requireContext(),R.layout.item_spinner,processingSports)
+        binding.sSport.setAdapter(firstAdapter)
+
+        val dischAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, disch)
         binding.sDisch.setAdapter(dischAdapter)
 
-        val rollAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServiceRolls.roll)
-        binding.sDisch.setAdapter(rollAdapter)
+        val rollAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, roll)
+        binding.sRoll.setAdapter(rollAdapter)
     }
 
     fun assemblyPlayer(){
@@ -64,7 +75,7 @@ class AddPlayersFragment: Fragment() {
             }else i += 1
         }
 
-        var team =  PlayerFragment.idTeam
+        var teamname = teamNaming.idTeams
 
         var counter: Int = 0
         i = 0
@@ -87,7 +98,7 @@ class AddPlayersFragment: Fragment() {
         }
 
 
-        val player = PlayerBody(0,  name, surname, lastname, num, team, counter, value)
+        val player = PlayerBody(0,  name, surname, lastname, counter, teamname, num , value)
         PostPlayer(player).start()
     }
 

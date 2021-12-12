@@ -2,6 +2,7 @@ package com.example.kursach.services
 
 import android.util.Log
 import com.example.kursach.dischs.Disch
+import com.example.kursach.positions.Position
 import com.example.kursach.rolls.Roll
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -42,11 +43,11 @@ object ServiceRolls {
                     val rolls = response.body()
                     if (rolls != null) {
                         for (i in 0 until rolls.count()) {
-                            val id = rolls[i].idRolls
-                            idroll.add(id)
-                            val rollName = rolls[i].roll
-                            roll.add(rollName)
-                            rollsList.add(Roll(id, rollName))
+                            val idRolls = rolls[i].idRolls
+                            idroll.add(idRolls)
+                            val rollname = rolls[i].roll
+                            roll.add(rollname)
+                            rollsList.add(Roll(idRolls, rollname))
                         }
                     }
                 }else Log.e("KEK", "ERROR")

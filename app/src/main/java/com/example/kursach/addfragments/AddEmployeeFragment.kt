@@ -18,6 +18,7 @@ import com.example.kursach.services.ServicePositions.positionsNameList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
 import com.example.kursach.services.PostEmployee
+import com.example.kursach.services.ServicePositions
 import com.example.kursach.services.ServiceSportClubs
 
 
@@ -54,7 +55,7 @@ class AddEmployeeFragment: Fragment(){
         positionsNameList.clear()
         processingAddress.clear()
         ServiceSportClubs.start()
-
+        ServicePositions.start()
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
 

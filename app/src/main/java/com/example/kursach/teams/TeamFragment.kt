@@ -12,16 +12,14 @@ import com.example.kursach.addfragments.AddTeamFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentTeamBinding
 import com.example.kursach.players.PlayerFragment
-import com.example.kursach.players.PlayerFragment.Companion.TEAMLIST
 import com.example.kursach.services.ServiceTeams
 import com.example.kursach.services.ServiceTeams.teamsList
 
 class TeamFragment: Fragment(){
 
     lateinit var binding: FragmentTeamBinding
-    companion object{
-        lateinit var TeamName: Team
-    }
+    lateinit var TeamName: Team
+
 //    lateinit var bundle: Bundle
 //    val intent: Intent = Intent(context, PlayerFragment::class.java)
 
@@ -61,8 +59,8 @@ class TeamFragment: Fragment(){
 
         TeamName = team
         //Fragment() as PlayerFragment).setTeam(team)
-        //PlayerFragment().setTeam(team)
-        (activity as MainActivity).openFragment(PlayerFragment())
+//        PlayerFragment().setTeam(team)
+        (activity as MainActivity).openFragment(PlayerFragment(TeamName))
 
     }
 

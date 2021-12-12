@@ -7,7 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentAddrollBinding
+import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.events.EventFragment
+import com.example.kursach.rolls.Roll
+import com.example.kursach.services.PostPosition
+import com.example.kursach.services.PostRoll
+import com.example.kursach.services.ServicePositions
+import com.example.kursach.services.ServiceRolls
+
 
 class AddRollFragment: Fragment() {
 
@@ -28,7 +35,20 @@ class AddRollFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(EventFragment())
         }
 
+        binding.btnAdd.setOnClickListener {
+            assemblyRoll()
+            ServiceRolls.rollsList.clear()
+            ServiceRolls.roll.clear()
+            ServiceRolls.start()
+            (activity as? MainActivity)?.openFragment(EmployeeFragment())
+        }
 
+    }
+
+    fun assemblyRoll(){
+        var name = binding.etRoll.text.toString()
+        val roll = Roll(0, name)
+        PostRoll(roll).start()
     }
 
     override fun onDestroy() {
