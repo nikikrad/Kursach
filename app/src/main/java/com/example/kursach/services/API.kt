@@ -98,5 +98,5 @@ interface API {
       @Field("idTeams") idTeams: Int,
       @Field("idKindOfSports") idKindOfSports: Int,
       @Field("idRolls") idRolls: Int
-   )
+   ):Call<PlayerBody>
 }

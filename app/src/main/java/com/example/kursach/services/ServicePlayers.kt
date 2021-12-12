@@ -14,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ServicePlayers {
 
+    var playerID: MutableList<Int> = emptyList<Int>().toMutableList()
     var playersList: MutableList<Player> = emptyList<Player>().toMutableList()
     var playerName: MutableList<String> = emptyList<String>().toMutableList()
     var playerSurname: MutableList<String> = emptyList<String>().toMutableList()
@@ -48,6 +49,7 @@ object ServicePlayers {
                         if (players != null) {
                             for (i in 0 until players.count()) {
                                 val idPlayers = players[i].idPlayers
+                                playerID.add(idPlayers)
                                 val name = players[i].Name
                                 playerName.add(name)
                                 val surname = players[i].Surname

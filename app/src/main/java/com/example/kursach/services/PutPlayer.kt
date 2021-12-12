@@ -1,7 +1,9 @@
 package com.example.kursach.services
 
 import android.util.Log
+import com.example.kursach.players.PlayerBody
 import com.example.kursach.positions.Position
+import com.example.kursach.services.URL.url
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -11,6 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class PutPlayer(
+    var id: Int,
     var name: String,
     var surname: String,
     var lastname: String,
@@ -22,15 +25,15 @@ class PutPlayer(
 
 //    var position: Position = Position(ID, positionname)
 
-    private val URL = com.example.kursach.services.URL.url
-
-    var Name = name
-    var Surname = surname
-    var Lastname = lastname
-    var Disch = disch
-    var Team = team
-    var Kindofsport = kindofsport
-    var Roll = roll
+    private val URL = url
+    var ID = id
+    var imya = name
+    var familiya = surname
+    var otchestvo = lastname
+    var razryad = disch
+    var komanda = team
+    var vidsporta = kindofsport
+    var roli = roll
 
     fun start() {
 
@@ -45,17 +48,17 @@ class PutPlayer(
 
         val myApi = retrofit.create(API::class.java)
 
-        val call = myApi.updatePosition(id, position)
-        call.enqueue(object: Callback<Position> {
+        val call = myApi.updatePlayer(ID, imya, familiya, otchestvo, razryad, komanda, vidsporta, roli)
+        call.enqueue(object: Callback<PlayerBody> {
 
             override fun onResponse(
-                call: Call<Position>,
-                response: Response<Position>
+                call: Call<PlayerBody>,
+                response: Response<PlayerBody>
             ) {
 
             }
 
-            override fun onFailure(call: Call<Position>, t: Throwable) {
+            override fun onFailure(call: Call<PlayerBody>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
         })
