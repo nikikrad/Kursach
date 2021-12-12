@@ -8,12 +8,16 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
+import com.example.kursach.addfragments.AddPlayersFragment
 import com.example.kursach.databinding.FragmentAddplayersBinding
 import com.example.kursach.databinding.FragmentAddpositionBinding
 import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.players.PlayerForAdapter
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceDischs.dischsList
+import com.example.kursach.services.ServiceKindOfSports.idSport
+import com.example.kursach.services.ServiceKindOfSports.kindofsportsList
+import com.example.kursach.services.ServiceKindOfSports.processingSports
 import com.example.kursach.services.ServicePlayers.numberTeam
 import com.example.kursach.services.ServicePlayers.playerID
 import com.example.kursach.services.ServicePlayers.playerLastname
@@ -43,11 +47,11 @@ class PutPlayerFragment(var team: Team): Fragment() {
         binding.btnEdit.visibility = View.INVISIBLE
 
         binding.btnAdd.setOnClickListener {
-//            assemblyPosition()
-            ServicePositions.positionsList.clear()
-            ServicePositions.positionsNameList.clear()
-            ServicePositions.start()
-            (activity as? MainActivity)?.openFragment(EmployeeFragment())
+            assemblyPosition()
+//            ServicePositions.positionsList.clear()
+//            ServicePositions.positionsNameList.clear()
+//            ServicePositions.start()
+            (activity as? MainActivity)?.openFragment(AddPlayersFragment(teamNumb))
         }
 
 
@@ -61,7 +65,11 @@ class PutPlayerFragment(var team: Team): Fragment() {
     fun setTextInputLayout() {
 
         ServicePositions.positionsNameList.clear()
+        ServiceDischs.disch.clear()
+        ServiceRolls.roll.clear()
         ServicePositions.start()
+        ServiceDischs.start()
+        ServiceRolls.start()
 
 //        var player: MutableList<PlayerForAdapter> = emptyList<PlayerForAdapter>().toMutableList()
 //        player.add(PlayerForAdapter(playerName, playerSurname, playerLastname))
@@ -70,11 +78,19 @@ class PutPlayerFragment(var team: Team): Fragment() {
         playerName.forEach{
             if (numberTeam[i] == teamNumb.idTeams){
                 player.add(playerName[i] + " " + playerSurname[i] + " " + playerLastname[i])
-                playerid[i] = playerID[i]
+                playerid.add(playerID[i])
             }
             i += 1
         }
 
+        val firstAdapter = ArrayAdapter(requireContext(),R.layout.item_spinner, processingSports)
+        binding.sSport.setAdapter(firstAdapter)
+
+        val dischAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner,ServiceDischs.disch)
+        binding.sDisch.setAdapter(dischAdapter)
+
+        val rollAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServiceRolls.roll)
+        binding.sRoll.setAdapter(rollAdapter)
 
         val plAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, player)
         binding.sPlayer.setAdapter(plAdapter)
@@ -85,7 +101,7 @@ class PutPlayerFragment(var team: Team): Fragment() {
         var i = 0
         var per: Int = 0
         var buf = binding.sPlayer.text.toString()
-        playerName.forEach{
+        player.forEach{
             if (buf == player[i]){
                 per = playerid[i]
             }
@@ -110,17 +126,18 @@ class PutPlayerFragment(var team: Team): Fragment() {
         var team = teamNumb.idTeams
 
 
-        var kindofsport = binding.sSport.text.toString()
+        buf = binding.sSport.text.toString()
         var num = 0
         i = 0
-        ServiceKindOfSports.kindofsportsList.forEach {
-            if (buf == ServiceKindOfSports.processingSports[i]){
-                num = ServiceKindOfSports.idSport[i]
-            }else i += 1
+        kindofsportsList.forEach {
+            if (buf == processingSports[i]){
+                num = idSport[i]
+            }
+            i += 1
         }
 
 
-        var roll = binding.sRoll.text.toString()
+//        var roll = binding.sRoll.text.toString()
         var value: Int = 0
         i = 0
         buf = binding.sRoll.text.toString()

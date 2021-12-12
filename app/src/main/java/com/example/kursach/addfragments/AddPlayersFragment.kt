@@ -17,6 +17,7 @@ import com.example.kursach.players.PlayerFragment
 import com.example.kursach.put.PutPlayerFragment
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceDischs.disch
+import com.example.kursach.services.ServiceKindOfSports.kindofsportsList
 import com.example.kursach.services.ServiceKindOfSports.processingSports
 import com.example.kursach.services.ServiceRolls.roll
 import com.example.kursach.teams.Team
@@ -53,6 +54,7 @@ class AddPlayersFragment(var team: Team): Fragment() {
         processingSports.clear()
         disch.clear()
         roll.clear()
+        kindofsportsList.clear()
         ServiceKindOfSports.start()
         ServiceDischs.start()
         ServiceRolls.start()
@@ -74,7 +76,7 @@ class AddPlayersFragment(var team: Team): Fragment() {
         var buf = binding.sSport.text.toString()
         var num = 0
         var i = 0
-        ServiceKindOfSports.kindofsportsList.forEach {
+        kindofsportsList.forEach {
             if (buf == ServiceKindOfSports.processingSports[i]){
                 num = ServiceKindOfSports.idSport[i]
             }else i += 1
