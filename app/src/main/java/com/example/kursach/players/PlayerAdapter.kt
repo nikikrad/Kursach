@@ -32,9 +32,9 @@ class PlayerAdapter(
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
         private val tvSurname: TextView = itemView.findViewById(R.id.tvSurname)
         private val tvLastname: TextView = itemView.findViewById(R.id.tvLastname)
-        private val tvDisch: TextView = itemView.findViewById(R.id.sDisch)
-        private val KindOfSport: TextView = itemView.findViewById(R.id.sSport)
-        private val Roll: TextView = itemView.findViewById(R.id.sRoll)
+        private val tvDisch: TextView = itemView.findViewById(R.id.tvDisch)
+        private val tvKindOfSport: TextView = itemView.findViewById(R.id.tvKindOfSport)
+        private val tvRoll: TextView = itemView.findViewById(R.id.tvRoll)
 
 
         fun bind(item: Player){
@@ -42,8 +42,8 @@ class PlayerAdapter(
             tvSurname.text = item.Surname
             tvLastname.text = item.Lastname
             tvDisch.text = item.DischName
-            KindOfSport.text = item.SportName
-            Roll.text = item.RollName
+            tvKindOfSport.text = item.SportName
+            tvRoll.text = item.RollName
         }
     }
 

@@ -56,11 +56,8 @@ class TeamFragment: Fragment(){
 
     private fun teamClickListener(team: Team){
 
-        Toast.makeText(context, team.toString(), Toast.LENGTH_SHORT).show()
-        (activity as MainActivity).openFragment(PlayerFragment())
         PlayerFragment().setTeam(team)
-//        bundle.putParcelableArrayList(TEAMLIST.toString(), team)
-//        intent.putExtra(TEAMLIST, team)
+        (activity as MainActivity).openFragment(PlayerFragment())
 
     }
 

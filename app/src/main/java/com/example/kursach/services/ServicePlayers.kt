@@ -15,8 +15,6 @@ object ServicePlayers {
 
     var playersList: MutableList<Player> = emptyList<Player>().toMutableList()
 
-    var disch: MutableList<String> = emptyList<String>().toMutableList()
-    var kindofsport: MutableList<String> = emptyList<String>().toMutableList()
     private const val URL = "http://10.0.2.2:3000/"
 
     fun start(){
@@ -96,7 +94,7 @@ object ServicePlayers {
                 var tempSport = ServiceKindOfSports.kindofsportsList
 
                 tempSport.forEach {
-                    if (it.idKindOfSport == idSport){
+                    if (it.idKindOfSports == idSport){
                         return it.KindOfSports
                     }
                 }

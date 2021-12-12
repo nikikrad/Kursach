@@ -46,7 +46,7 @@ object ServiceRolls {
                             idroll.add(id)
                             val rollName = rolls[i].roll
                             roll.add(rollName)
-                            ServiceDischs.dischsList.add(Disch(id, rollName))
+                            rollsList.add(Roll(id, rollName))
                         }
                     }
                 }else Log.e("KEK", "ERROR")

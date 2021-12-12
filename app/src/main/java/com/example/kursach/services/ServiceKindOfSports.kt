@@ -43,7 +43,7 @@ object ServiceKindOfSports {
                     val sport = response.body()
                     if (sport != null) {
                         for (i in 0 until sport.count()) {
-                            val id = sport[i].idKindOfSport
+                            val id = sport[i].idKindOfSports
                             idSport.add(id)
                             val KindOfSports = sport[i].KindOfSports
                             processingSports.add(KindOfSports)

@@ -15,7 +15,11 @@ import com.example.kursach.addfragments.AddEventFragment
 import com.example.kursach.addfragments.AddPlayersFragment
 import com.example.kursach.addfragments.AddRollFragment
 import com.example.kursach.databinding.FragmentPlayersBinding
+import com.example.kursach.services.ServiceDischs
+import com.example.kursach.services.ServiceKindOfSports
+import com.example.kursach.services.ServicePlayers
 import com.example.kursach.services.ServicePlayers.playersList
+import com.example.kursach.services.ServiceRolls
 import com.example.kursach.teams.Team
 import com.example.kursach.teams.TeamFragment
 
@@ -23,10 +27,12 @@ class PlayerFragment: Fragment() {
 
     lateinit var binding: FragmentPlayersBinding
 
+    private var definityTeam: MutableList<Player> = emptyList<Player>().toMutableList()
     private var team: Team? = null
+    lateinit var variableTeam: Team
 
     companion object{
-        val TEAMLIST: MutableList<Team> = emptyList<Team>().toMutableList()
+        lateinit var TEAMLIST: Team
     }
 
     override fun onCreateView(
@@ -41,8 +47,6 @@ class PlayerFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        Log.e("qwe", team.toString())
-
         binding.btnAddPlayer.setOnClickListener {
             (activity as? MainActivity)?.openFragment(AddPlayersFragment())
 
@@ -51,17 +55,38 @@ class PlayerFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(AddRollFragment())
         }
 
+        binding.tvNameTeam.setText(TEAMLIST.teamName)
 
 
-        val playerAdapter = PlayerAdapter(playersList)
+        playersList.forEach{
+            if(it.idTeams == TEAMLIST.idTeams){
+                definityTeam.add(Player(0,it.Name, it.Surname, it.Lastname, it.idDischs, it.DischName, it.idTeams, it.TeamName, it.idKindOfSports, it.SportName, it.idRolls, it.RollName))
+            }
+        }
+
+        val playerAdapter = PlayerAdapter(definityTeam)
         binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         binding.rvPlayer.adapter = playerAdapter
+
+        binding.btnUpdate.setOnClickListener {
+            playersList.clear()
+            ServicePlayers.start()
+            ServiceRolls.start()
+            ServiceDischs.start()
+            ServiceKindOfSports.start()
+            val playerAdapter = PlayerAdapter(playersList)
+            binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+            binding.rvPlayer.adapter = playerAdapter
+            Thread.sleep(500)
+            (activity as? MainActivity)?.openFragment(PlayerFragment())
+        }
 
 
     }
 
     fun setTeam(team: Team){
         this.team = team
+        TEAMLIST = team
     }
 
 
