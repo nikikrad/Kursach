@@ -19,6 +19,9 @@ import com.example.kursach.services.ServiceTeams.teamsList
 class TeamFragment: Fragment(){
 
     lateinit var binding: FragmentTeamBinding
+    companion object{
+        lateinit var TeamName: Team
+    }
 //    lateinit var bundle: Bundle
 //    val intent: Intent = Intent(context, PlayerFragment::class.java)
 
@@ -56,7 +59,9 @@ class TeamFragment: Fragment(){
 
     private fun teamClickListener(team: Team){
 
-        PlayerFragment().setTeam(team)
+        TeamName = team
+        //Fragment() as PlayerFragment).setTeam(team)
+        //PlayerFragment().setTeam(team)
         (activity as MainActivity).openFragment(PlayerFragment())
 
     }

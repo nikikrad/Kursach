@@ -32,7 +32,7 @@ class PlayerFragment: Fragment() {
     lateinit var variableTeam: Team
 
     companion object{
-        lateinit var TEAMLIST: Team
+        var TEAMLIST: Team = TeamFragment.TeamName
         var definityTeam: MutableList<Player> = emptyList<Player>().toMutableList()
         var idTeam: Int = TEAMLIST.idTeams
     }
@@ -51,7 +51,6 @@ class PlayerFragment: Fragment() {
 
         binding.btnAddPlayer.setOnClickListener {
             (activity as? MainActivity)?.openFragment(AddPlayersFragment())
-
         }
         binding.btnRoll.setOnClickListener {
             (activity as? MainActivity)?.openFragment(AddRollFragment())
@@ -71,12 +70,16 @@ class PlayerFragment: Fragment() {
         binding.rvPlayer.adapter = playerAdapter
 
         binding.btnUpdate.setOnClickListener {
-            playersList.clear()
+            definityTeam.clear()
             ServicePlayers.start()
             ServiceRolls.start()
             ServiceDischs.start()
             ServiceKindOfSports.start()
-            val playerAdapter = PlayerAdapter(playersList)
+            playersList.forEach{
+                if(it.idTeams == TEAMLIST.idTeams){
+                    definityTeam.add(Player(0,it.Name, it.Surname, it.Lastname, it.idDischs, it.DischName, it.idTeams, it.TeamName, it.idKindOfSports, it.SportName, it.idRolls, it.RollName))
+                }
+            }
             binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
             binding.rvPlayer.adapter = playerAdapter
             Thread.sleep(500)
@@ -86,10 +89,10 @@ class PlayerFragment: Fragment() {
 
     }
 
-    fun setTeam(team: Team){
-        this.team = team
-        TEAMLIST = team
-    }
+//    fun setTeam(team: Team){
+//        this.team = team
+//        TEAMLIST = team
+//    }
 
 
 
