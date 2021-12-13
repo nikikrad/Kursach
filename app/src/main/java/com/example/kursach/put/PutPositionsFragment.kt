@@ -9,12 +9,15 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddpositionBinding
+import com.example.kursach.delete.DeletePosition
+import com.example.kursach.delete.DeleteRoll
 import com.example.kursach.employees.EmployeeFragment
-import com.example.kursach.positions.Position
-import com.example.kursach.services.PutPosition
+import com.example.kursach.putservice.PutPosition
 import com.example.kursach.services.ServicePositions
 import com.example.kursach.services.ServicePositions.idPositionsList
 import com.example.kursach.services.ServicePositions.positionsNameList
+import com.example.kursach.services.ServiceRolls
+import com.example.kursach.teams.TeamFragment
 
 class PutPositionsFragment:  Fragment(){
     lateinit var binding: FragmentAddpositionBinding
@@ -39,6 +42,11 @@ class PutPositionsFragment:  Fragment(){
             ServicePositions.positionsList.clear()
             ServicePositions.positionsNameList.clear()
             ServicePositions.start()
+            (activity as? MainActivity)?.openFragment(EmployeeFragment())
+        }
+
+        binding.btnDelete.setOnClickListener {
+            delete()
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
@@ -70,6 +78,18 @@ class PutPositionsFragment:  Fragment(){
 
 //        val position = Position(counter, name)
         PutPosition(counter, name).start()
+    }
+
+    fun delete(){
+        var counter: Int = 0
+        var i = 0
+        var buf = binding.sPositions.text.toString()
+        positionsNameList.forEach {
+            if(buf == positionsNameList[i]){
+                counter = idPositionsList[i]
+            }else i += 1
+        }
+        DeletePosition(counter).start()
     }
 
     override fun onDestroy() {

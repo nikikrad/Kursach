@@ -9,8 +9,6 @@ import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentAddemployeeBinding
 import com.example.kursach.employees.EmployeeFragment
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import com.example.kursach.R
 import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.put.PutEmployeeFragment
@@ -18,8 +16,7 @@ import com.example.kursach.services.ServicePositions.idPositionsList
 import com.example.kursach.services.ServicePositions.positionsNameList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
-import com.example.kursach.services.PostEmployee
-import com.example.kursach.services.PutEmployee
+import com.example.kursach.postservice.PostEmployee
 import com.example.kursach.services.ServicePositions
 import com.example.kursach.services.ServiceSportClubs
 

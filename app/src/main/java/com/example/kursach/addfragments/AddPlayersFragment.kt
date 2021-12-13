@@ -9,11 +9,9 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddplayersBinding
-import com.example.kursach.employees.EmployeeBody
-import com.example.kursach.events.EventFragment
-import com.example.kursach.players.Player
 import com.example.kursach.players.PlayerBody
 import com.example.kursach.players.PlayerFragment
+import com.example.kursach.postservice.PostPlayer
 import com.example.kursach.put.PutPlayerFragment
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceDischs.disch

@@ -11,13 +11,12 @@ import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddeventBinding
 import com.example.kursach.events.EventBody
 import com.example.kursach.events.EventFragment
-import com.example.kursach.kindofsports.KindOfSport
+import com.example.kursach.postservice.PostEvent
+import com.example.kursach.put.PutEventFragment
 import com.example.kursach.services.*
-import com.example.kursach.services.ServiceKindOfSports.idSport
 import com.example.kursach.services.ServiceKindOfSports.processingSports
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
-import com.example.kursach.sponsors.SponsorBody
 
 class AddEventFragment: Fragment() {
 
@@ -37,6 +36,10 @@ class AddEventFragment: Fragment() {
         binding.btnAdd.setOnClickListener {
             assemblyEvent()
             (activity as? MainActivity)?.openFragment(EventFragment())
+        }
+
+        binding.btnEdit.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(PutEventFragment())
         }
 
         setTextInputLayout()

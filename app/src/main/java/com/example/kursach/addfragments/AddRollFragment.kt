@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.databinding.FragmentAddrollBinding
-import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.events.EventFragment
 import com.example.kursach.players.PlayerFragment
 import com.example.kursach.rolls.Roll
-import com.example.kursach.services.PostPosition
-import com.example.kursach.services.PostRoll
-import com.example.kursach.services.ServicePositions
+import com.example.kursach.postservice.PostRoll
+import com.example.kursach.put.PutRollFragment
 import com.example.kursach.services.ServiceRolls
 import com.example.kursach.teams.Team
 
@@ -44,6 +42,10 @@ class AddRollFragment (var team: Team): Fragment() {
             ServiceRolls.roll.clear()
             ServiceRolls.start()
             (activity as? MainActivity)?.openFragment(PlayerFragment(bufTeam))
+        }
+
+        binding.btnEdit.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(PutRollFragment())
         }
 
     }

@@ -14,6 +14,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceEvents {
 
     var eventsList: MutableList<Event> = emptyList<Event>().toMutableList()
+    var eventID: MutableList<Int> = emptyList<Int>().toMutableList()
+    var eventsport: MutableList<String> = emptyList<String>().toMutableList()
+    var eventdate: MutableList<String> = emptyList<String>().toMutableList()
+    var eventtime: MutableList<String> = emptyList<String>().toMutableList()
+    var sportid: MutableList<Int> = emptyList<Int>().toMutableList()
+
+
     private  val URL = url
 
     fun start(){
@@ -43,9 +50,13 @@ object ServiceEvents {
                         if (events != null) {
                             for (i in 0 until events.count()) {
                                 val idEvents = events[i].idEvents
+                                eventID.add(idEvents)
                                 val sport = events[i].sport
+                                eventsport.add(sport)
                                 val date = events[i].date
+                                eventdate.add(date)
                                 val time = events[i].time
+                                eventtime.add(time)
                                 val idSportClubs = events[i].idSportClubs
                                 val address = clubAddress(idSportClubs)
                                 eventsList.add(Event(idEvents, sport, date, time, idSportClubs, address))

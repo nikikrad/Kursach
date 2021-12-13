@@ -128,4 +128,71 @@ interface API {
       @Field("teamName") Name: String,
       @Field("idSportClubs") idSportClubs: Int
    ): Call<TeamBody>
+
+   @FormUrlEncoded
+   @PUT("events/update/{id}")
+   fun updateEvent(
+      @Path("id") id: Int,
+      @Field("sport") sport: String,
+      @Field("date") date: String,
+      @Field("time") time: String,
+      @Field("idSportClubs") idSportClubs: Int
+   ):Call<EventBody>
+
+   @FormUrlEncoded
+   @PUT("sportclubs/update/{id}")
+   fun updateClub(
+      @Path("id") id: Int,
+      @Field("sportAddress") sportAddress: String,
+      @Field("sportNumber") sportNumber: String,
+      @Field("sportMail") sportMail: String
+   ):Call<Club>
+
+   @FormUrlEncoded
+   @PUT("rolls/update/{id}")
+   fun   updateRoll(
+      @Path("id") id: Int,
+      @Field("roll") roll: String,
+   ): Call<Roll>
+
+   @DELETE("rolls/delete/{id}")
+   fun deleteRoll(
+      @Path("id") id: Int
+   ):Call<Unit>
+
+   @DELETE("players/delete/{id}")
+   fun deletePlayer(
+      @Path("id") id: Int
+   ):Call<Unit>
+
+   @DELETE("teams/delete/{id}")
+   fun deleteTeam(
+      @Path("id") id: Int
+   ):Call<Unit>
+
+   @DELETE("sportclubs/delete/{id}")
+   fun deleteClub(
+      @Path("id") id: Int
+   ):Call<Unit>
+
+   @DELETE("sponsors/delete/{id}")
+   fun deleteSponsor(
+      @Path("id") id: Int
+   ):Call<Unit>
+
+   @DELETE("employees/delete/{id}")
+   fun deleteEmployee(
+      @Path("id") id: Int
+   ):Call<Unit>
+
+   @DELETE("positions/delete/{id}")
+   fun deletePosition(
+      @Path("id") id: Int
+   ):Call<Unit>
+
+   @DELETE("events/delete/{id}")
+   fun deleteEvent(
+      @Path("id") id: Int
+   ):Call<Unit>
+
 }

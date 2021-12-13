@@ -10,9 +10,9 @@ import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.addfragments.AddPlayersFragment
 import com.example.kursach.databinding.FragmentAddplayersBinding
-import com.example.kursach.databinding.FragmentAddpositionBinding
-import com.example.kursach.employees.EmployeeFragment
-import com.example.kursach.players.PlayerForAdapter
+import com.example.kursach.delete.DeletePlayer
+import com.example.kursach.delete.DeleteRoll
+import com.example.kursach.putservice.PutPlayer
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceDischs.dischsList
 import com.example.kursach.services.ServiceKindOfSports.idSport
@@ -23,8 +23,8 @@ import com.example.kursach.services.ServicePlayers.playerID
 import com.example.kursach.services.ServicePlayers.playerLastname
 import com.example.kursach.services.ServicePlayers.playerName
 import com.example.kursach.services.ServicePlayers.playerSurname
-import com.example.kursach.services.ServicePlayers.playersList
 import com.example.kursach.teams.Team
+import com.example.kursach.teams.TeamFragment
 
 class PutPlayerFragment(var team: Team): Fragment() {
 
@@ -52,6 +52,11 @@ class PutPlayerFragment(var team: Team): Fragment() {
 //            ServicePositions.positionsNameList.clear()
 //            ServicePositions.start()
             (activity as? MainActivity)?.openFragment(AddPlayersFragment(teamNumb))
+        }
+
+        binding.btnDelete.setOnClickListener {
+            delete()
+            (activity as? MainActivity)?.openFragment(TeamFragment())
         }
 
 
@@ -150,6 +155,19 @@ class PutPlayerFragment(var team: Team): Fragment() {
 
 //        val position = Position(counter, name)
         PutPlayer(per, name, surname, lastname, counter, team, num, value).start()
+    }
+
+    fun delete(){
+        var i = 0
+        var per: Int = 0
+        var buf = binding.sPlayer.text.toString()
+        player.forEach{
+            if (buf == player[i]){
+                per = playerid[i]
+            }
+            i += 1
+        }
+        DeletePlayer(per).start()
     }
 
     override fun onDestroy() {

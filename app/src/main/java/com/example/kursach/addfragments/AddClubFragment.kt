@@ -9,11 +9,8 @@ import com.example.kursach.MainActivity
 import com.example.kursach.clubs.Club
 import com.example.kursach.clubs.ClubFragment
 import com.example.kursach.databinding.FragmentAddclubBinding
-import com.example.kursach.employees.EmployeeBody
-import com.example.kursach.services.PostEmployee
-import com.example.kursach.services.PostSportClub
-import com.example.kursach.services.ServicePositions
-import com.example.kursach.services.ServiceSportClubs
+import com.example.kursach.postservice.PostSportClub
+import com.example.kursach.put.PutSportClubFragment
 
 class AddClubFragment: Fragment() {
 
@@ -33,6 +30,10 @@ class AddClubFragment: Fragment() {
         binding.btnAdd.setOnClickListener {
             assemblyClub()
             (activity as? MainActivity)?.openFragment(ClubFragment())
+        }
+
+        binding.btnEdit.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(PutSportClubFragment())
         }
     }
 

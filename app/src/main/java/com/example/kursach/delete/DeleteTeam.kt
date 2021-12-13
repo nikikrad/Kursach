@@ -1,7 +1,7 @@
-package com.example.kursach.services
+package com.example.kursach.delete
 
 import android.util.Log
-import com.example.kursach.positions.Position
+import com.example.kursach.services.API
 import com.example.kursach.services.URL.url
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -11,18 +11,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PutPosition(
-    var ID: Int,
-    var positionname: String
+class DeleteTeam(
+    var ID: Int
 ) {
-    var id = ID
-    var position = positionname
+    private  val URL = url
 
-//    var position: Position = Position(ID, positionname)
-
-    private val URL = url
-
-    fun start() {
+    fun start(){
 
         val gson: Gson = GsonBuilder()
             .setLenient()
@@ -35,19 +29,25 @@ class PutPosition(
 
         val myApi = retrofit.create(API::class.java)
 
-        val call = myApi.updatePosition(id, position)
-        call.enqueue(object: Callback<Position> {
+        val call = myApi.deleteTeam(ID)
+        call.enqueue(object: Callback<Unit> {
 
             override fun onResponse(
-                call: Call<Position>,
-                response: Response<Position>
+                call: Call<Unit>,
+                response: Response<Unit>
             ) {
-
+                if (response.isSuccessful)
+                    Log.e("qwerty", "WORK")
+                else
+                    Log.e("qwerty", "DOSENT WORK")
             }
 
-            override fun onFailure(call: Call<Position>, t: Throwable) {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
+
+
         })
+
     }
 }

@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddsponsorBinding
+import com.example.kursach.delete.DeleteRoll
+import com.example.kursach.delete.DeleteSponsor
+import com.example.kursach.putservice.PutSponsor
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceSponsors.nameSponsors
 import com.example.kursach.services.ServiceSponsors.sponsorID
@@ -16,8 +19,8 @@ import com.example.kursach.services.ServiceSponsors.sponsorsList
 import com.example.kursach.services.ServiceSportClubs.clubsList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
-import com.example.kursach.sponsors.SponsorBody
 import com.example.kursach.sponsors.SponsorFragment
+import com.example.kursach.teams.TeamFragment
 
 class PutSponsorFragment: Fragment() {
 
@@ -43,7 +46,10 @@ class PutSponsorFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(SponsorFragment())
         }
 
-
+        binding.btnDelete.setOnClickListener {
+            delete()
+            (activity as? MainActivity)?.openFragment(SponsorFragment())
+        }
 
         setTextInputLayout()
 
@@ -96,6 +102,18 @@ class PutSponsorFragment: Fragment() {
         PutSponsor(per, name, number, mail, num).start()
     }
 
+    fun delete(){
+        var i = 0
+        var per: Int = 0
+        var buf = binding.sSponsor.text.toString()
+        sponsorsList.forEach{
+            if (buf == nameSponsors[i]){
+                per = sponsorID[i]
+            }
+            i += 1
+        }
+        DeleteSponsor(per).start()
+    }
 
     override fun onDestroy() {
         super.onDestroy()

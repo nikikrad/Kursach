@@ -9,11 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddsponsorBinding
-import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.put.PutSponsorFragment
-import com.example.kursach.services.PostEmployee
-import com.example.kursach.services.PostSponsor
-import com.example.kursach.services.ServicePositions
+import com.example.kursach.postservice.PostSponsor
 import com.example.kursach.services.ServiceSportClubs
 import com.example.kursach.sponsors.SponsorBody
 import com.example.kursach.sponsors.SponsorFragment

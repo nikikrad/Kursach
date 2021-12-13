@@ -10,7 +10,7 @@ import com.example.kursach.databinding.FragmentAddpositionBinding
 import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.positions.Position
 import com.example.kursach.put.PutPositionsFragment
-import com.example.kursach.services.PostPosition
+import com.example.kursach.postservice.PostPosition
 import com.example.kursach.services.ServicePositions
 import com.example.kursach.services.ServicePositions.positionsList
 import com.example.kursach.services.ServicePositions.positionsNameList

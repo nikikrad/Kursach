@@ -1,10 +1,7 @@
-package com.example.kursach.services
+package com.example.kursach.delete
 
 import android.util.Log
-import com.example.kursach.employees.Employee
-import com.example.kursach.employees.EmployeeBody
-import com.example.kursach.services.URL.url
-import com.example.kursach.sponsors.Sponsor
+import com.example.kursach.services.API
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -13,12 +10,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PostEmployee(
-    private val employee: EmployeeBody
-)
- {
+class DeleteEmployee(
+    var ID: Int
+) {
 
-    private  val URL = url
+    private  val URL = com.example.kursach.services.URL.url
 
     fun start(){
 
@@ -33,16 +29,20 @@ class PostEmployee(
 
         val myApi = retrofit.create(API::class.java)
 
-        val call = myApi.sendEmployee(employee)
-        call.enqueue(object: Callback<EmployeeBody> {
+        val call = myApi.deleteEmployee(ID)
+        call.enqueue(object: Callback<Unit> {
 
             override fun onResponse(
-                call: Call<EmployeeBody>,
-                response: Response<EmployeeBody>
+                call: Call<Unit>,
+                response: Response<Unit>
             ) {
+                if (response.isSuccessful)
+                    Log.e("qwerty", "WORK")
+                else
+                    Log.e("qwerty", "DOSENT WORK")
             }
 
-            override fun onFailure(call: Call<EmployeeBody>, t: Throwable) {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
 
@@ -50,4 +50,5 @@ class PostEmployee(
         })
 
     }
+
 }

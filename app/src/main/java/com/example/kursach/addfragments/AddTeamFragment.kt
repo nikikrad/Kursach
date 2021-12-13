@@ -9,12 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddteamBinding
-import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.put.PutTeamFragment
-import com.example.kursach.services.PostEmployee
-import com.example.kursach.services.PostTeam
-import com.example.kursach.services.ServicePositions
-import com.example.kursach.services.ServicePositions.positionsNameList
+import com.example.kursach.postservice.PostTeam
 import com.example.kursach.services.ServiceSportClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
 import com.example.kursach.teams.TeamBody

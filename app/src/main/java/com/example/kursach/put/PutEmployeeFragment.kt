@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddemployeeBinding
-import com.example.kursach.employees.EmployeeBody
+import com.example.kursach.delete.DeleteEmployee
+import com.example.kursach.delete.DeleteRoll
 import com.example.kursach.employees.EmployeeFragment
+import com.example.kursach.putservice.PutEmployee
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceEmployees.employeeID
 import com.example.kursach.services.ServiceEmployees.employeeLastname
@@ -22,6 +24,7 @@ import com.example.kursach.services.ServicePositions.positionsNameList
 import com.example.kursach.services.ServiceSportClubs.clubsList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
+import com.example.kursach.teams.TeamFragment
 
 class PutEmployeeFragment: Fragment() {
 
@@ -50,6 +53,11 @@ class PutEmployeeFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
+        binding.btnDelete.setOnClickListener {
+            delete()
+            (activity as? MainActivity)?.openFragment(EmployeeFragment())
+        }
+
 
 
         setTextInputLayout()
@@ -67,8 +75,6 @@ class PutEmployeeFragment: Fragment() {
         processingAddress.clear()
         clubsList.clear()
 
-
-
         ServiceSportClubs.start()
         ServicePositions.start()
 
@@ -79,10 +85,10 @@ class PutEmployeeFragment: Fragment() {
             i+=1
         }
 
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServiceSportClubs.processingAddress)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
 
-        val posAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServicePositions.positionsNameList)
+        val posAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, positionsNameList)
         binding.sPositions.setAdapter(posAdapter)
 
         val empAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, employee)
@@ -132,6 +138,19 @@ class PutEmployeeFragment: Fragment() {
 
 
         PutEmployee(per,  name, surname, lastname, counter, num).start()
+    }
+
+    fun delete(){
+        var i = 0
+        var per: Int = 0
+        var buf = binding.sEmployee.text.toString()
+        employeeName.forEach{
+            if (buf == employee[i]){
+                per = employeeID[i]
+            }
+            i += 1
+        }
+        DeleteEmployee(per).start()
     }
 
     override fun onDestroy() {

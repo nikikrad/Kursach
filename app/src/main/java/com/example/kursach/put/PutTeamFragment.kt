@@ -9,14 +9,13 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddteamBinding
-import com.example.kursach.services.PostTeam
-import com.example.kursach.services.PutTeam
+import com.example.kursach.delete.DeleteRoll
+import com.example.kursach.delete.DeleteTeam
+import com.example.kursach.putservice.PutTeam
+import com.example.kursach.services.ServiceRolls
 import com.example.kursach.services.ServiceSportClubs
-import com.example.kursach.services.ServiceTeams
 import com.example.kursach.services.ServiceTeams.teamID
 import com.example.kursach.services.ServiceTeams.teamNaming
-import com.example.kursach.services.ServiceTeams.teamsList
-import com.example.kursach.teams.TeamBody
 import com.example.kursach.teams.TeamFragment
 
 class PutTeamFragment: Fragment() {
@@ -42,19 +41,16 @@ class PutTeamFragment: Fragment() {
             assemblyTeam()
             (activity as MainActivity).openFragment(TeamFragment())
         }
+
+        binding.btnDelete.setOnClickListener {
+            delete()
+            (activity as? MainActivity)?.openFragment(TeamFragment())
+        }
+
         setTextInputLayout()
     }
 
     fun setTextInputLayout() {
-
-//        ServiceSportClubs.clubsList.clear()
-//        ServiceSportClubs.processingAddress.clear()
-//        ServiceSportClubs.idClubs.clear()
-//        ServiceSportClubs.start()
-//        teamsList.clear()
-//        teamID.clear()
-//        teamName.clear()
-//        ServiceTeams.start()
 
 
         val firstAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, teamNaming)
@@ -88,6 +84,19 @@ class PutTeamFragment: Fragment() {
         }
 
         PutTeam(per, name, num).start()
+    }
+
+    fun delete(){
+        var i = 0
+        var per: Int = 0
+        var buf = binding.sTeam.text.toString()
+        teamNaming.forEach{
+            if (buf == teamNaming[i]){
+                per = teamID[i]
+            }
+            i += 1
+        }
+        DeleteTeam(per).start()
     }
 
     override fun onDestroy() {

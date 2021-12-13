@@ -1,8 +1,7 @@
-package com.example.kursach.services
+package com.example.kursach.delete
 
 import android.util.Log
-import com.example.kursach.clubs.Club
-import com.example.kursach.events.EventBody
+import com.example.kursach.services.API
 import com.example.kursach.services.URL.url
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -12,8 +11,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PostEvent(
-    private var event: EventBody
+class DeletePlayer(
+    var ID: Int
 ) {
     private  val URL = url
 
@@ -30,16 +29,20 @@ class PostEvent(
 
         val myApi = retrofit.create(API::class.java)
 
-        val call = myApi.sendEvent(event)
-        call.enqueue(object: Callback<EventBody> {
+        val call = myApi.deletePlayer(ID)
+        call.enqueue(object: Callback<Unit> {
 
             override fun onResponse(
-                call: Call<EventBody>,
-                response: Response<EventBody>
+                call: Call<Unit>,
+                response: Response<Unit>
             ) {
+                if (response.isSuccessful)
+                    Log.e("qwerty", "WORK")
+                else
+                    Log.e("qwerty", "DOSENT WORK")
             }
 
-            override fun onFailure(call: Call<EventBody>, t: Throwable) {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
 

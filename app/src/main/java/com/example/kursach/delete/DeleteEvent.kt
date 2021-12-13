@@ -1,9 +1,7 @@
-package com.example.kursach.services
+package com.example.kursach.delete
 
 import android.util.Log
-import com.example.kursach.positions.Position
-import com.example.kursach.rolls.Roll
-import com.example.kursach.services.URL.url
+import com.example.kursach.services.API
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -12,10 +10,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PostRoll(
-    private var roll: Roll
+class DeleteEvent(
+    var ID: Int
 ) {
-    private  val URL = url
+
+    private  val URL = com.example.kursach.services.URL.url
 
     fun start(){
 
@@ -30,16 +29,20 @@ class PostRoll(
 
         val myApi = retrofit.create(API::class.java)
 
-        val call = myApi.sendRoll(roll)
-        call.enqueue(object: Callback<Roll> {
+        val call = myApi.deleteEvent(ID)
+        call.enqueue(object: Callback<Unit> {
 
             override fun onResponse(
-                call: Call<Roll>,
-                response: Response<Roll>
+                call: Call<Unit>,
+                response: Response<Unit>
             ) {
+                if (response.isSuccessful)
+                    Log.e("qwerty", "WORK")
+                else
+                    Log.e("qwerty", "DOSENT WORK")
             }
 
-            override fun onFailure(call: Call<Roll>, t: Throwable) {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
                 Log.e("KEK", t.toString())
             }
 
@@ -47,4 +50,5 @@ class PostRoll(
         })
 
     }
+
 }
