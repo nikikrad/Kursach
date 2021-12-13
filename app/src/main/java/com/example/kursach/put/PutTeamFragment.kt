@@ -14,7 +14,7 @@ import com.example.kursach.services.PutTeam
 import com.example.kursach.services.ServiceSportClubs
 import com.example.kursach.services.ServiceTeams
 import com.example.kursach.services.ServiceTeams.teamID
-import com.example.kursach.services.ServiceTeams.teamName
+import com.example.kursach.services.ServiceTeams.teamNaming
 import com.example.kursach.services.ServiceTeams.teamsList
 import com.example.kursach.teams.TeamBody
 import com.example.kursach.teams.TeamFragment
@@ -47,20 +47,18 @@ class PutTeamFragment: Fragment() {
 
     fun setTextInputLayout() {
 
-        ServiceSportClubs.clubsList.clear()
-        ServiceSportClubs.processingAddress.clear()
-        ServiceSportClubs.idClubs.clear()
-        ServiceSportClubs.start()
-        teamsList.clear()
-        teamID.clear()
-        teamName.clear()
-
-        ServiceTeams.start()
-
+//        ServiceSportClubs.clubsList.clear()
+//        ServiceSportClubs.processingAddress.clear()
+//        ServiceSportClubs.idClubs.clear()
+//        ServiceSportClubs.start()
+//        teamsList.clear()
+//        teamID.clear()
+//        teamName.clear()
+//        ServiceTeams.start()
 
 
-        val firstAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, teamName)
-        binding.sAddress.setAdapter(firstAdapter)
+        val firstAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, teamNaming)
+        binding.sTeam.setAdapter(firstAdapter)
 
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServiceSportClubs.processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
@@ -72,8 +70,8 @@ class PutTeamFragment: Fragment() {
         var i = 0
         var per: Int = 0
         var buf = binding.sTeam.text.toString()
-        teamName.forEach{
-            if (buf == teamName[i]){
+        teamNaming.forEach{
+            if (buf == teamNaming[i]){
                 per = teamID[i]
             }
             i += 1

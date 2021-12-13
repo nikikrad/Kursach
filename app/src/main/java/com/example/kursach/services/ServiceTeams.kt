@@ -15,8 +15,9 @@ object ServiceTeams {
 
     var teamsList: MutableList<Team> = emptyList<Team>().toMutableList()
     var teamID: MutableList<Int> = emptyList<Int>().toMutableList()
-    var teamName: MutableList<String> = emptyList<String>().toMutableList()
+    var teamNaming: MutableList<String> = emptyList<String>().toMutableList()
     private val URL = url
+
 
     fun start(){
 
@@ -46,7 +47,7 @@ object ServiceTeams {
                                 val idTeams = teams[i].idTeams
                                 teamID.add(idTeams)
                                 val name = teams[i].teamName
-                                teamName.add(name)
+                                teamNaming.add(name)
                                 val club = teams[i].idSportClubs
                                 val address = clubAddress(club)
                                 teamsList.add(Team(idTeams, name, club, address))
@@ -55,6 +56,7 @@ object ServiceTeams {
                     }
                 }else Log.e("KEK", "ERROR")
             }
+
 
             override fun onFailure(call: Call<List<Team>>, t: Throwable) {
                 Log.e("KEK", t.toString())
