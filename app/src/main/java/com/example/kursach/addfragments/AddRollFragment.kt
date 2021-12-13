@@ -40,6 +40,7 @@ class AddRollFragment (var team: Team): Fragment() {
             assemblyRoll()
             ServiceRolls.rollsList.clear()
             ServiceRolls.roll.clear()
+            ServiceRolls.rollsList.clear()
             ServiceRolls.start()
             (activity as? MainActivity)?.openFragment(PlayerFragment(bufTeam))
         }

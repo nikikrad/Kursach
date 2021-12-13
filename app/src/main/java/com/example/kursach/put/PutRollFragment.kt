@@ -42,9 +42,10 @@ class PutRollFragment: Fragment() {
 
         binding.btnAdd.setOnClickListener {
             assemblyRoll()
-//            ServiceRolls.rollsList.clear()
-//            ServiceRolls.roll.clear()
-//            ServiceRolls.start()
+            ServiceRolls.rollsList.clear()
+            ServiceRolls.roll.clear()
+            ServiceRolls.rollsList.clear()
+            ServiceRolls.start()
             (activity as? MainActivity)?.openFragment(TeamFragment())
         }
         binding.btnDelete.setOnClickListener {

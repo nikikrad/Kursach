@@ -3,10 +3,12 @@ package com.example.kursach
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.kursach.databinding.ActivityMainBinding
 import android.widget.Toast
 import com.example.kursach.clubs.ClubFragment
+import com.example.kursach.databinding.FragmentSponsorBinding
 import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.events.EventFragment
 import com.example.kursach.services.*
@@ -45,10 +47,9 @@ class MainActivity : AppCompatActivity() {
         ServiceEmployees.start()
         ServicePlayers.start()
         ServiceSponsors.start()
-//        TestPostRequest(hui).start()
-
 
         binding.btnEvents.setOnClickListener {
+
             openFragment(EventFragment())
         }
         binding.btnTeams.setOnClickListener {
@@ -66,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnWelcome.setOnClickListener {
             openFragment(WelcomeFragment())
         }
-
 
     }
 
