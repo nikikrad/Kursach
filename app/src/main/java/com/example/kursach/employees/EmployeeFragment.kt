@@ -39,6 +39,9 @@ class EmployeeFragment: Fragment() {
         binding.rvEmployee.adapter = EmployeeAdapter
 
         binding.btnUpdate.setOnClickListener {
+            ServiceEmployees.employeeName.clear()
+            ServiceEmployees.employeeSurname.clear()
+            ServiceEmployees.employeeLastname.clear()
             employeesList.clear()
             ServiceEmployees.start()
             val EmployeeAdapter = EmployeeAdapter(employeesList)

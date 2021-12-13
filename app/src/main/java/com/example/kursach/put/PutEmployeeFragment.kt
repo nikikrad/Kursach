@@ -1,30 +1,29 @@
-package com.example.kursach.addfragments
+package com.example.kursach.put
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
-import com.example.kursach.databinding.FragmentAddemployeeBinding
-import com.example.kursach.employees.EmployeeFragment
-import android.widget.ArrayAdapter
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import com.example.kursach.R
+import com.example.kursach.databinding.FragmentAddemployeeBinding
 import com.example.kursach.employees.EmployeeBody
-import com.example.kursach.put.PutEmployeeFragment
+import com.example.kursach.employees.EmployeeFragment
+import com.example.kursach.services.*
+import com.example.kursach.services.ServiceEmployees.employeeID
+import com.example.kursach.services.ServiceEmployees.employeeLastname
+import com.example.kursach.services.ServiceEmployees.employeeName
+import com.example.kursach.services.ServiceEmployees.employeeSurname
 import com.example.kursach.services.ServicePositions.idPositionsList
+import com.example.kursach.services.ServicePositions.positionsList
 import com.example.kursach.services.ServicePositions.positionsNameList
+import com.example.kursach.services.ServiceSportClubs.clubsList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
-import com.example.kursach.services.PostEmployee
-import com.example.kursach.services.PutEmployee
-import com.example.kursach.services.ServicePositions
-import com.example.kursach.services.ServiceSportClubs
 
-
-class AddEmployeeFragment: Fragment(){
+class PutEmployeeFragment: Fragment() {
 
     lateinit var binding: FragmentAddemployeeBinding
 
@@ -40,6 +39,10 @@ class AddEmployeeFragment: Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        binding.spinner.visibility = View.VISIBLE
+        binding.btnDelete.visibility = View.VISIBLE
+        binding.btnEdit.visibility = View.INVISIBLE
+
         binding.btnAdd.setOnClickListener {
 
             assemblyEmployee()
@@ -47,39 +50,76 @@ class AddEmployeeFragment: Fragment(){
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
-        binding.btnEdit.setOnClickListener {
-            (activity as? MainActivity)?.openFragment(PutEmployeeFragment())
-        }
+
 
         setTextInputLayout()
 
     }
 
+    var employee: MutableList<String> = emptyList<String>().toMutableList()
+
     fun setTextInputLayout() {
 
+        idPositionsList.clear()
         positionsNameList.clear()
+        positionsList.clear()
+        idClubs.clear()
         processingAddress.clear()
+        clubsList.clear()
+
+
+
         ServiceSportClubs.start()
         ServicePositions.start()
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
+
+
+        var i = 0
+        employeeName.forEach {
+            employee.add(employeeName[i] + " " + employeeSurname[i] + " " + employeeLastname[i])
+            i+=1
+        }
+
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServiceSportClubs.processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
 
-        val posAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, positionsNameList)
+        val posAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServicePositions.positionsNameList)
         binding.sPositions.setAdapter(posAdapter)
+
+        val empAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, employee)
+        binding.sEmployee.setAdapter(empAdapter)
     }
 
     fun assemblyEmployee(){
-        var name = binding.etName.text.toString()
-        var surname = binding.etSurname.text.toString()
-        var lastname = binding.etLastname.text.toString()
-        var buf = binding.sAddress.text.toString()
-        var num = 0
+
         var i = 0
+        var per: Int = 0
+        var buf = binding.sEmployee.text.toString()
+        employeeName.forEach{
+            if (buf == employee[i]){
+                per = employeeID[i]
+            }
+            i += 1
+        }
+
+        var name = binding.etName.text.toString()
+
+        var surname = binding.etSurname.text.toString()
+
+        var lastname = binding.etLastname.text.toString()
+
+        buf = binding.sAddress.text.toString()
+
+
+
+        var num = 0
+        i = 0
         processingAddress.forEach {
             if (buf == processingAddress[i]){
                 num = idClubs[i]
             }else i += 1
         }
+
+
 
         var counter: Int = 0
         i = 0
@@ -91,8 +131,7 @@ class AddEmployeeFragment: Fragment(){
         }
 
 
-        val employee = EmployeeBody(0,  name, surname, lastname, counter, num)
-        PostEmployee(employee).start()
+        PutEmployee(per,  name, surname, lastname, counter, num).start()
     }
 
     override fun onDestroy() {

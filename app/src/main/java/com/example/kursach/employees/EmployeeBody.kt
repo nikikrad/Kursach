@@ -1,15 +1,10 @@
 package com.example.kursach.employees
 
-import com.google.gson.annotations.SerializedName
-
 data class EmployeeBody(
     var idEmploees: Int,
-    @SerializedName("eFirstName")
-    var Name: String,
-    @SerializedName("eSurName")
-    var Surname: String,
-    @SerializedName("eLastName")
-    var Lastname:String,
+    var eFirstName: String,
+    var eSurName: String,
+    var eLastName:String,
     var idPositions: Int,
     var idSportClubs: Int
 )

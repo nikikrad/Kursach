@@ -99,4 +99,15 @@ interface API {
       @Field("idKindOfSports") idKindOfSports: Int,
       @Field("idRolls") idRolls: Int
    ):Call<PlayerBody>
+
+   @FormUrlEncoded
+   @PUT("employees/update/{id}")
+   fun updateEmployee(
+      @Path("id") id: Int,
+      @Field("eFirstName") pFirstName: String,
+      @Field("eSurName") pSurName: String,
+      @Field("eLastName") pLastName: String,
+      @Field("idPositions") idDischs: Int,
+      @Field("idSportClubs") idTeams: Int
+   ):Call<EmployeeBody>
 }

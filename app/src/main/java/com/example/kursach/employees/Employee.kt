@@ -3,7 +3,7 @@ package com.example.kursach.employees
 import com.google.gson.annotations.SerializedName
 
 data class Employee(
-    var idEmploees: Int,
+    var idEmployees: Int,
     @SerializedName("eFirstName")
     var Name: String,
     @SerializedName("eSurName")

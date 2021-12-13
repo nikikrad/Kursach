@@ -16,6 +16,10 @@ object ServiceEmployees {
 
 
     var employeesList: MutableList<Employee> = emptyList<Employee>().toMutableList()
+    var employeeName: MutableList<String> = emptyList<String>().toMutableList()
+    var employeeSurname: MutableList<String> = emptyList<String>().toMutableList()
+    var employeeLastname: MutableList<String> = emptyList<String>().toMutableList()
+    var employeeID: MutableList<Int> = emptyList<Int>().toMutableList()
     private  val URL = url
 
     fun start(){
@@ -43,20 +47,26 @@ object ServiceEmployees {
                         val employee = response.body()
                         if (employee != null) {
                             for (i in 0 until employee.count()) {
-                                val idEmploees = employee[i].idEmploees
+                                val idEmployees = employee[i].idEmployees
+                                employeeID.add(idEmployees)
                                 val name = employee[i].Name
-                                val sername = employee[i].Surname
+                                employeeName.add(name)
+                                val surname = employee[i].Surname
+                                employeeSurname.add(surname)
                                 val lastname = employee[i].Lastname
+                                employeeLastname.add(lastname)
                                 val idPositions = employee[i].idPositions
                                 val position = positionsInfo(idPositions)
                                 val idSportClubs = employee[i].idSportClubs
                                 val address = clubAddress(idSportClubs)
-                                employeesList.add(Employee(idEmploees, name, sername, lastname, idPositions, idSportClubs, address, position))
+                                employeesList.add(Employee(idEmployees, name, surname, lastname, idPositions, idSportClubs, address, position))
                             }
                         }
                     }
                 }else Log.e("KEK", "ERROR")
             }
+
+//            fun fullNameemployee( )
 
             override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
                 Log.e("KEK", t.toString())
