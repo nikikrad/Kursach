@@ -104,10 +104,28 @@ interface API {
    @PUT("employees/update/{id}")
    fun updateEmployee(
       @Path("id") id: Int,
-      @Field("eFirstName") pFirstName: String,
-      @Field("eSurName") pSurName: String,
-      @Field("eLastName") pLastName: String,
-      @Field("idPositions") idDischs: Int,
-      @Field("idSportClubs") idTeams: Int
+      @Field("eFirstName") eFirstName: String,
+      @Field("eSurName") eSurName: String,
+      @Field("eLastName") eLastName: String,
+      @Field("idPositions") idPositions: Int,
+      @Field("idSportClubs") idSportClubs: Int
    ):Call<EmployeeBody>
+
+   @FormUrlEncoded
+   @PUT("sponsors/update/{id}")
+   fun updateSponsor(
+      @Path("id") id: Int,
+      @Field("sponsorName") sponsorName: String,
+      @Field("sponsorNumber") sponsorNumber: String,
+      @Field("sponsorMail") sponsorMail: String,
+      @Field("idSportClubs") idSportClubs: Int
+   ):Call<SponsorBody>
+
+   @FormUrlEncoded
+   @PUT("teams/update/{id}")
+   fun   updateTeam(
+      @Path("id") id: Int,
+      @Field("teamName") Name: String,
+      @Field("idSportClubs") idSportClubs: Int
+   ): Call<TeamBody>
 }

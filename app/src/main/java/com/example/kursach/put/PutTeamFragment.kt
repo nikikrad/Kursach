@@ -1,4 +1,4 @@
-package com.example.kursach.addfragments
+package com.example.kursach.put
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,18 +9,17 @@ import androidx.fragment.app.Fragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddteamBinding
-import com.example.kursach.employees.EmployeeBody
-import com.example.kursach.put.PutTeamFragment
-import com.example.kursach.services.PostEmployee
 import com.example.kursach.services.PostTeam
-import com.example.kursach.services.ServicePositions
-import com.example.kursach.services.ServicePositions.positionsNameList
+import com.example.kursach.services.PutTeam
 import com.example.kursach.services.ServiceSportClubs
-import com.example.kursach.services.ServiceSportClubs.processingAddress
+import com.example.kursach.services.ServiceTeams
+import com.example.kursach.services.ServiceTeams.teamID
+import com.example.kursach.services.ServiceTeams.teamName
+import com.example.kursach.services.ServiceTeams.teamsList
 import com.example.kursach.teams.TeamBody
 import com.example.kursach.teams.TeamFragment
 
-class AddTeamFragment: Fragment() {
+class PutTeamFragment: Fragment() {
 
     lateinit var binding: FragmentAddteamBinding
 
@@ -35,40 +34,62 @@ class AddTeamFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        binding.spinner.visibility = View.VISIBLE
+        binding.btnDelete.visibility = View.VISIBLE
+        binding.btnEdit.visibility = View.INVISIBLE
+
         binding.btnAdd.setOnClickListener {
             assemblyTeam()
             (activity as MainActivity).openFragment(TeamFragment())
         }
         setTextInputLayout()
-
-        binding.btnEdit.setOnClickListener {
-            (activity as MainActivity).openFragment(PutTeamFragment())
-        }
     }
 
     fun setTextInputLayout() {
 
-        processingAddress.clear()
+        ServiceSportClubs.clubsList.clear()
+        ServiceSportClubs.processingAddress.clear()
+        ServiceSportClubs.idClubs.clear()
         ServiceSportClubs.start()
+        teamsList.clear()
+        teamID.clear()
+        teamName.clear()
 
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
+        ServiceTeams.start()
+
+
+
+        val firstAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, teamName)
+        binding.sAddress.setAdapter(firstAdapter)
+
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, ServiceSportClubs.processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
     }
 
 
     fun assemblyTeam(){
-        var name = binding.etTeam.text.toString()
-        var buf = binding.sAddress.text.toString()
-        var num = 0
+
         var i = 0
-        processingAddress.forEach {
-            if (buf == processingAddress[i]){
+        var per: Int = 0
+        var buf = binding.sTeam.text.toString()
+        teamName.forEach{
+            if (buf == teamName[i]){
+                per = teamID[i]
+            }
+            i += 1
+        }
+
+        var name = binding.etTeam.text.toString()
+        buf = binding.sAddress.text.toString()
+        var num = 0
+        i = 0
+        ServiceSportClubs.processingAddress.forEach {
+            if (buf == ServiceSportClubs.processingAddress[i]){
                 num = ServiceSportClubs.idClubs[i]
             }else i += 1
         }
 
-        val team = TeamBody(0,  name, num)
-        PostTeam(team).start()
+        PutTeam(per, name, num).start()
     }
 
     override fun onDestroy() {

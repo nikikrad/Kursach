@@ -14,6 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceTeams {
 
     var teamsList: MutableList<Team> = emptyList<Team>().toMutableList()
+    var teamID: MutableList<Int> = emptyList<Int>().toMutableList()
+    var teamName: MutableList<String> = emptyList<String>().toMutableList()
     private val URL = url
 
     fun start(){
@@ -42,7 +44,9 @@ object ServiceTeams {
                         if (teams != null) {
                             for (i in 0 until teams.count()) {
                                 val idTeams = teams[i].idTeams
+                                teamID.add(idTeams)
                                 val name = teams[i].teamName
+                                teamName.add(name)
                                 val club = teams[i].idSportClubs
                                 val address = clubAddress(club)
                                 teamsList.add(Team(idTeams, name, club, address))

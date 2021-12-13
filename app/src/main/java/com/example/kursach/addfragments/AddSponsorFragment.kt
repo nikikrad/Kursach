@@ -10,6 +10,7 @@ import com.example.kursach.MainActivity
 import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddsponsorBinding
 import com.example.kursach.employees.EmployeeBody
+import com.example.kursach.put.PutSponsorFragment
 import com.example.kursach.services.PostEmployee
 import com.example.kursach.services.PostSponsor
 import com.example.kursach.services.ServicePositions
@@ -37,6 +38,9 @@ class AddSponsorFragment: Fragment() {
             (activity as? MainActivity)?.openFragment(SponsorFragment())
         }
 
+        binding.btnEdit.setOnClickListener {
+            (activity as? MainActivity)?.openFragment(PutSponsorFragment())
+        }
 
         setTextInputLayout()
 
