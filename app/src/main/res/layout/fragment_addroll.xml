@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_goneMarginTop="20dp"
         android:background="@color/gray"
-        android:hint="Вид спорта*"
+        android:hint="Роль*"
         android:visibility="invisible">
 
         <AutoCompleteTextView

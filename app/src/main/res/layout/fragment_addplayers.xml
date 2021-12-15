@@ -121,7 +121,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/gray"
-        android:hint="Разряд*"
+        android:hint="Игрок*"
         android:visibility="invisible">
 
         <AutoCompleteTextView
