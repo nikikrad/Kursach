@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.MainActivity
+import com.example.kursach.WelcomeFragment
+import com.example.kursach.WelcomeFragment.Companion.LOGGIN
+import com.example.kursach.WelcomeFragment.Companion.PASSWORD
 import com.example.kursach.addfragments.AddSponsorFragment
 import com.example.kursach.databinding.FragmentSponsorBinding
 import com.example.kursach.services.ServiceSponsors
@@ -26,6 +29,13 @@ class SponsorFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        if(LOGGIN == "admin" || PASSWORD == "admin"){
+            binding.btnAddSponsor.visibility = View.VISIBLE
+        }else {
+            binding.btnAddSponsor.visibility = View.GONE
+        }
+
         binding.btnAddSponsor.setOnClickListener {
             (activity as? MainActivity)?.openFragment(AddSponsorFragment())
         }

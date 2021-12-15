@@ -14,6 +14,8 @@ import com.example.kursach.events.EventFragment
 import com.example.kursach.postservice.PostEvent
 import com.example.kursach.put.PutEventFragment
 import com.example.kursach.services.*
+import com.example.kursach.services.ServiceKindOfSports.idSport
+import com.example.kursach.services.ServiceKindOfSports.kindofsportsList
 import com.example.kursach.services.ServiceKindOfSports.processingSports
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
@@ -48,7 +50,10 @@ class AddEventFragment: Fragment() {
 
     fun setTextInputLayout() {
 
+
         processingSports.clear()
+        idSport.clear()
+        kindofsportsList.clear()
         processingAddress.clear()
         ServiceSportClubs.start()
         ServiceKindOfSports.start()

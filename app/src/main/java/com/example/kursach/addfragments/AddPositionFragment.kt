@@ -12,6 +12,7 @@ import com.example.kursach.positions.Position
 import com.example.kursach.put.PutPositionsFragment
 import com.example.kursach.postservice.PostPosition
 import com.example.kursach.services.ServicePositions
+import com.example.kursach.services.ServicePositions.idPositionsList
 import com.example.kursach.services.ServicePositions.positionsList
 import com.example.kursach.services.ServicePositions.positionsNameList
 
@@ -34,6 +35,7 @@ class AddPositionFragment: Fragment() {
             assemblyPosition()
             positionsList.clear()
             positionsNameList.clear()
+            idPositionsList.clear()
             ServicePositions.start()
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }

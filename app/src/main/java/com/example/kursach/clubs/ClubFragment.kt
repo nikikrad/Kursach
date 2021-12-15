@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddClubFragment
 import com.example.kursach.MainActivity
+import com.example.kursach.WelcomeFragment
+import com.example.kursach.WelcomeFragment.Companion.LOGGIN
+import com.example.kursach.WelcomeFragment.Companion.PASSWORD
 import com.example.kursach.databinding.FragmentClubBinding
 import com.example.kursach.services.ServiceSportClubs
 import com.example.kursach.services.ServiceSportClubs.clubsList
@@ -26,6 +29,10 @@ class ClubFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        if(LOGGIN == "admin" || PASSWORD == "admin"){
+            binding.btnClubs.visibility = View.VISIBLE
+        }else binding.btnClubs.visibility = View.GONE
 
         binding.btnClubs.setOnClickListener {
             (activity as? MainActivity)?.openFragment(AddClubFragment())

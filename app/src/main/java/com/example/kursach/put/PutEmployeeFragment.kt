@@ -18,6 +18,7 @@ import com.example.kursach.services.ServiceEmployees.employeeID
 import com.example.kursach.services.ServiceEmployees.employeeLastname
 import com.example.kursach.services.ServiceEmployees.employeeName
 import com.example.kursach.services.ServiceEmployees.employeeSurname
+import com.example.kursach.services.ServiceEmployees.employeesList
 import com.example.kursach.services.ServicePositions.idPositionsList
 import com.example.kursach.services.ServicePositions.positionsList
 import com.example.kursach.services.ServicePositions.positionsNameList
@@ -50,6 +51,13 @@ class PutEmployeeFragment: Fragment() {
 
             assemblyEmployee()
 
+            employeesList.clear()
+            employeeName.clear()
+            employeeSurname.clear()
+            employeeLastname.clear()
+            employeeID.clear()
+        ServiceEmployees.start()
+
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
@@ -68,12 +76,22 @@ class PutEmployeeFragment: Fragment() {
 
     fun setTextInputLayout() {
 
+//        employeesList.clear()
+//        employeeName.clear()
+//        employeeSurname.clear()
+//        employeeLastname.clear()
+//        employeeID.clear()
+//        ServiceEmployees.start()
+
+
         idPositionsList.clear()
         positionsNameList.clear()
         positionsList.clear()
         idClubs.clear()
         processingAddress.clear()
         clubsList.clear()
+
+
 
         ServiceSportClubs.start()
         ServicePositions.start()
@@ -96,6 +114,8 @@ class PutEmployeeFragment: Fragment() {
     }
 
     fun assemblyEmployee(){
+
+
 
         var i = 0
         var per: Int = 0

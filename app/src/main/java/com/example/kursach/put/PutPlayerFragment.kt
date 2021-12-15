@@ -71,13 +71,13 @@ class PutPlayerFragment(var team: Team): Fragment() {
 
         ServicePositions.positionsNameList.clear()
         ServiceDischs.disch.clear()
+        dischsList.clear()
+        ServiceDischs.iddisch.clear()
         ServiceRolls.roll.clear()
         ServicePositions.start()
         ServiceDischs.start()
         ServiceRolls.start()
 
-//        var player: MutableList<PlayerForAdapter> = emptyList<PlayerForAdapter>().toMutableList()
-//        player.add(PlayerForAdapter(playerName, playerSurname, playerLastname))
         var i = 0
 
         playerName.forEach{

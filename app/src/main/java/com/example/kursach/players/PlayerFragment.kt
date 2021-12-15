@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddTeamFragment
 import com.example.kursach.MainActivity
 import com.example.kursach.R
+import com.example.kursach.WelcomeFragment
+import com.example.kursach.WelcomeFragment.Companion.LOGGIN
+import com.example.kursach.WelcomeFragment.Companion.PASSWORD
 import com.example.kursach.addfragments.AddEventFragment
 import com.example.kursach.addfragments.AddPlayersFragment
 import com.example.kursach.addfragments.AddRollFragment
@@ -18,6 +21,11 @@ import com.example.kursach.databinding.FragmentPlayersBinding
 import com.example.kursach.services.ServiceDischs
 import com.example.kursach.services.ServiceKindOfSports
 import com.example.kursach.services.ServicePlayers
+import com.example.kursach.services.ServicePlayers.numberTeam
+import com.example.kursach.services.ServicePlayers.playerID
+import com.example.kursach.services.ServicePlayers.playerLastname
+import com.example.kursach.services.ServicePlayers.playerName
+import com.example.kursach.services.ServicePlayers.playerSurname
 import com.example.kursach.services.ServicePlayers.playersList
 import com.example.kursach.services.ServiceRolls
 import com.example.kursach.teams.Team
@@ -26,20 +34,11 @@ import com.example.kursach.teams.TeamFragment
 class PlayerFragment(var team: Team): Fragment() {
 
     lateinit var binding: FragmentPlayersBinding
-
     var teamNaming = team
-//    private var definityTeam: MutableList<Player> = emptyList<Player>().toMutableList()
-//    private var team: Team? = null
     lateinit var variableTeam: Team
-
-    //var TEAMLIST: Team? = null
     var idTeam: Int = teamNaming.idTeams
-    //var idTeam: Int = TEAMLIST!!.idTeams
     companion object{
-        //var TEAMLIST: Team? = null
-//        = TeamFragment.TeamName
         var definityTeam: MutableList<Player> = emptyList<Player>().toMutableList()
-       // var idTeam: Int = TEAMLIST.idTeams
     }
 
     override fun onCreateView(
@@ -53,6 +52,14 @@ class PlayerFragment(var team: Team): Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        if(LOGGIN == "admin" || PASSWORD == "admin"){
+            binding.btnAddPlayer.visibility = View.VISIBLE
+            binding.btnRoll.visibility = View.VISIBLE
+        }else {
+            binding.btnAddPlayer.visibility = View.GONE
+            binding.btnRoll.visibility = View.GONE
+        }
 
         binding.btnAddPlayer.setOnClickListener {
             (activity as? MainActivity)?.openFragment(AddPlayersFragment(teamNaming))
@@ -76,7 +83,12 @@ class PlayerFragment(var team: Team): Fragment() {
 
         binding.btnUpdate.setOnClickListener {
             definityTeam.clear()
+            playerID.clear()
             playersList.clear()
+            playerName.clear()
+            playerSurname.clear()
+            playerLastname.clear()
+            numberTeam.clear()
             ServicePlayers.start()
             binding.rvPlayer.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
             binding.rvPlayer.adapter = playerAdapter
@@ -86,14 +98,6 @@ class PlayerFragment(var team: Team): Fragment() {
 
 
     }
-
-//    fun setTeam(team: Team){
-//        this.team = team
-//        TEAMLIST = team
-//    }
-
-
-
 
 
     override fun onDestroy() {

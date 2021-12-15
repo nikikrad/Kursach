@@ -48,6 +48,8 @@ class PutSponsorFragment: Fragment() {
 
         binding.btnDelete.setOnClickListener {
             delete()
+
+
             (activity as? MainActivity)?.openFragment(SponsorFragment())
         }
 

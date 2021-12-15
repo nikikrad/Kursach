@@ -15,9 +15,15 @@ import com.example.kursach.postservice.PostPlayer
 import com.example.kursach.put.PutPlayerFragment
 import com.example.kursach.services.*
 import com.example.kursach.services.ServiceDischs.disch
+import com.example.kursach.services.ServiceDischs.dischsList
+import com.example.kursach.services.ServiceDischs.iddisch
+import com.example.kursach.services.ServiceKindOfSports.idSport
 import com.example.kursach.services.ServiceKindOfSports.kindofsportsList
 import com.example.kursach.services.ServiceKindOfSports.processingSports
+import com.example.kursach.services.ServicePlayers.playerID
+import com.example.kursach.services.ServiceRolls.idroll
 import com.example.kursach.services.ServiceRolls.roll
+import com.example.kursach.services.ServiceRolls.rollsList
 import com.example.kursach.teams.Team
 
 class AddPlayersFragment(var team: Team): Fragment() {
@@ -40,6 +46,13 @@ class AddPlayersFragment(var team: Team): Fragment() {
 
         binding.btnAdd.setOnClickListener {
             assemblyPlayer()
+            playerID.clear()
+            ServicePlayers.playersList.clear()
+            ServicePlayers.playerName.clear()
+            ServicePlayers.playerSurname.clear()
+            ServicePlayers.playerLastname.clear()
+            ServicePlayers.numberTeam.clear()
+            ServicePlayers.start()
             (activity as? MainActivity)?.openFragment(PlayerFragment(teamNaming))
         }
 
@@ -50,8 +63,14 @@ class AddPlayersFragment(var team: Team): Fragment() {
     fun setTextInputLayout() {
 
         processingSports.clear()
+        idSport.clear()
+        kindofsportsList.clear()
         disch.clear()
+        dischsList.clear()
+        iddisch.clear()
         roll.clear()
+        rollsList.clear()
+        idroll.clear()
         kindofsportsList.clear()
         ServiceKindOfSports.start()
         ServiceDischs.start()

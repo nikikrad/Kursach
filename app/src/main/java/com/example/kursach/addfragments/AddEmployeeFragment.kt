@@ -10,6 +10,7 @@ import com.example.kursach.databinding.FragmentAddemployeeBinding
 import com.example.kursach.employees.EmployeeFragment
 import android.widget.ArrayAdapter
 import com.example.kursach.R
+import com.example.kursach.employees.Employee
 import com.example.kursach.employees.EmployeeBody
 import com.example.kursach.put.PutEmployeeFragment
 import com.example.kursach.services.ServicePositions.idPositionsList
@@ -17,6 +18,12 @@ import com.example.kursach.services.ServicePositions.positionsNameList
 import com.example.kursach.services.ServiceSportClubs.idClubs
 import com.example.kursach.services.ServiceSportClubs.processingAddress
 import com.example.kursach.postservice.PostEmployee
+import com.example.kursach.services.ServiceEmployees
+import com.example.kursach.services.ServiceEmployees.employeeID
+import com.example.kursach.services.ServiceEmployees.employeeLastname
+import com.example.kursach.services.ServiceEmployees.employeeName
+import com.example.kursach.services.ServiceEmployees.employeeSurname
+import com.example.kursach.services.ServiceEmployees.employeesList
 import com.example.kursach.services.ServicePositions
 import com.example.kursach.services.ServiceSportClubs
 
@@ -41,10 +48,18 @@ class AddEmployeeFragment: Fragment(){
 
             assemblyEmployee()
 
+            employeesList.clear()
+            employeeName.clear()
+            employeeSurname.clear()
+            employeeLastname.clear()
+            employeeID.clear()
+            ServiceEmployees.start()
+
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
         binding.btnEdit.setOnClickListener {
+
             (activity as? MainActivity)?.openFragment(PutEmployeeFragment())
         }
 

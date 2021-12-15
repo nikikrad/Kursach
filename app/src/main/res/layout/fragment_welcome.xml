@@ -45,6 +45,7 @@
         android:textColorHint="@color/black"
         android:gravity="center"
         android:textSize="25dp"
+        android:inputType="textPassword"
         android:hint="Password"/>
 
     <androidx.appcompat.widget.AppCompatButton

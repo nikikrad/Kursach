@@ -11,6 +11,10 @@ import com.example.kursach.R
 import com.example.kursach.databinding.FragmentAddsponsorBinding
 import com.example.kursach.put.PutSponsorFragment
 import com.example.kursach.postservice.PostSponsor
+import com.example.kursach.services.ServiceSponsors
+import com.example.kursach.services.ServiceSponsors.nameSponsors
+import com.example.kursach.services.ServiceSponsors.sponsorID
+import com.example.kursach.services.ServiceSponsors.sponsorsList
 import com.example.kursach.services.ServiceSportClubs
 import com.example.kursach.sponsors.SponsorBody
 import com.example.kursach.sponsors.SponsorFragment
@@ -32,6 +36,11 @@ class AddSponsorFragment: Fragment() {
 
         binding.btnAdd.setOnClickListener {
             assemblySponsor()
+
+            sponsorsList.clear()
+            nameSponsors.clear()
+            sponsorID.clear()
+            ServiceSponsors.start()
             (activity as? MainActivity)?.openFragment(SponsorFragment())
         }
 

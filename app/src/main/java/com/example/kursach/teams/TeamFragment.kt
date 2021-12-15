@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kursach.addfragments.AddTeamFragment
 import com.example.kursach.MainActivity
+import com.example.kursach.WelcomeFragment
+import com.example.kursach.WelcomeFragment.Companion.LOGGIN
+import com.example.kursach.WelcomeFragment.Companion.PASSWORD
 import com.example.kursach.databinding.FragmentTeamBinding
 import com.example.kursach.players.PlayerFragment
 import com.example.kursach.services.ServiceTeams
@@ -20,8 +23,6 @@ class TeamFragment: Fragment(){
     lateinit var binding: FragmentTeamBinding
     lateinit var TeamName: Team
 
-//    lateinit var bundle: Bundle
-//    val intent: Intent = Intent(context, PlayerFragment::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,6 +34,12 @@ class TeamFragment: Fragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        if(LOGGIN == "admin" || PASSWORD == "admin"){
+            binding.btnAddTeam.visibility = View.VISIBLE
+        }else {
+            binding.btnAddTeam.visibility = View.GONE
+        }
 
         binding.btnAddTeam.setOnClickListener {
             (activity as MainActivity).openFragment(AddTeamFragment())
