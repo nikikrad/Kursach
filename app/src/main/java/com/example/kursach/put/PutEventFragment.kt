@@ -115,7 +115,8 @@ class PutEventFragment: Fragment() {
         processingAddress.forEach {
             if (buf == processingAddress[i]){
                 num = ServiceSportClubs.idClubs[i]
-            }else i += 1
+            }
+            i += 1
         }
 
 

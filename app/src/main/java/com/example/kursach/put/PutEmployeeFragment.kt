@@ -122,7 +122,8 @@ class PutEmployeeFragment: Fragment() {
         processingAddress.forEach {
             if (buf == processingAddress[i]){
                 num = idClubs[i]
-            }else i += 1
+            }
+            i += 1
         }
 
 
@@ -131,9 +132,10 @@ class PutEmployeeFragment: Fragment() {
         i = 0
         buf = binding.sPositions.text.toString()
         positionsNameList.forEach {
-            if(buf == positionsNameList[i])
+            if(buf == positionsNameList[i]) {
                 counter = idPositionsList[i]
-            else i += 1
+            }
+            i += 1
         }
 
 

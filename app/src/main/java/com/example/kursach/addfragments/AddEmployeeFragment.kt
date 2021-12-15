@@ -54,10 +54,10 @@ class AddEmployeeFragment: Fragment(){
 
     fun setTextInputLayout() {
 
-        positionsNameList.clear()
-        processingAddress.clear()
-        ServiceSportClubs.start()
-        ServicePositions.start()
+//        positionsNameList.clear()
+//        processingAddress.clear()
+//        ServiceSportClubs.start()
+//        ServicePositions.start()
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_spinner, processingAddress)
         binding.sAddress.setAdapter(arrayAdapter)
 
@@ -82,9 +82,10 @@ class AddEmployeeFragment: Fragment(){
         i = 0
         buf = binding.sPositions.text.toString()
         positionsNameList.forEach {
-            if(buf == positionsNameList[i])
+            if(buf == positionsNameList[i]) {
                 counter = idPositionsList[i]
-            else i += 1
+            }
+             i += 1
         }
 
 

@@ -74,7 +74,8 @@ class PutRollFragment: Fragment() {
         roll.forEach {
             if(buf == roll[i]){
                 counter = idroll[i]
-            }else i += 1
+            }
+            i += 1
         }
 
         var name = binding.etRoll.text.toString()
@@ -89,7 +90,8 @@ class PutRollFragment: Fragment() {
         roll.forEach {
             if(buf == roll[i]){
                 counter = idroll[i]
-            }else i += 1
+            }
+            i += 1
         }
         DeleteRoll(counter).start()
     }

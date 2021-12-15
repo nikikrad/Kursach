@@ -15,6 +15,7 @@ import com.example.kursach.employees.EmployeeFragment
 import com.example.kursach.putservice.PutPosition
 import com.example.kursach.services.ServicePositions
 import com.example.kursach.services.ServicePositions.idPositionsList
+import com.example.kursach.services.ServicePositions.positionsList
 import com.example.kursach.services.ServicePositions.positionsNameList
 import com.example.kursach.services.ServiceRolls
 import com.example.kursach.teams.TeamFragment
@@ -39,14 +40,17 @@ class PutPositionsFragment:  Fragment(){
 
         binding.btnAdd.setOnClickListener {
             assemblyPosition()
-            ServicePositions.positionsList.clear()
-            ServicePositions.positionsNameList.clear()
+            positionsList.clear()
+            positionsNameList.clear()
             ServicePositions.start()
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
         binding.btnDelete.setOnClickListener {
             delete()
+            positionsList.clear()
+            positionsNameList.clear()
+            ServicePositions.start()
             (activity as? MainActivity)?.openFragment(EmployeeFragment())
         }
 
@@ -73,7 +77,8 @@ class PutPositionsFragment:  Fragment(){
         positionsNameList.forEach {
             if(buf == positionsNameList[i]){
                 counter = idPositionsList[i]
-            }else i += 1
+            }
+            i += 1
         }
 
 //        val position = Position(counter, name)
@@ -87,7 +92,8 @@ class PutPositionsFragment:  Fragment(){
         positionsNameList.forEach {
             if(buf == positionsNameList[i]){
                 counter = idPositionsList[i]
-            }else i += 1
+            }
+            i += 1
         }
         DeletePosition(counter).start()
     }

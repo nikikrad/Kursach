@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         ServicePlayers.start()
         ServiceSponsors.start()
 
+
         binding.btnEvents.setOnClickListener {
 
             openFragment(EventFragment())
